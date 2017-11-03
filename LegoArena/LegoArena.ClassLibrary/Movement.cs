@@ -8,5 +8,16 @@ namespace LegoArena.ClassLibrary
 {
     class Movement
     {
+        private int movement;
+
+        public void FindHome(enum )
+        {
+
+        }
+
+        public void FindHomeSequence()
+        {
+
+        }
     }
 }
