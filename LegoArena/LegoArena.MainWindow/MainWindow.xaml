@@ -25,5 +25,10 @@
             <Button x:Name="FindSequence" Grid.Column="1" Grid.Row="2" VerticalAlignment="Center" Width="85" Margin="7" Background="BlanchedAlmond" Foreground="Black">Find Sequence</Button>
             <Button x:Name="FindBlock" Grid.Column="1" Grid.Row="2" VerticalAlignment="Bottom" Width="85" Margin="7" Background="BlanchedAlmond" Foreground="Black">Find Block</Button>
         </StackPanel>
+        <DataGrid Grid.Column="1" Grid.Row="1">
+            <DataGrid.Columns>
+                <
+            </DataGrid.Columns>
+        </DataGrid>
     </Grid>
 </Window>
