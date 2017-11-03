@@ -13,7 +13,7 @@ namespace LegoArena.ClassLibrary
 {
     public class TeamBrick
     {
-        private Brick brick;
+        private Brick brick = new Brick(new UsbCommunication());
 
         public Brick Brick
         {
@@ -27,12 +27,11 @@ namespace LegoArena.ClassLibrary
             }
         }
         
-        public void ConnectASync()
+        public async Task ConnectASync()
         {
             try
             {
-                brick = new Brick(new UsbCommunication());
-                brick.ConnectAsync();
+                await brick.ConnectAsync();
             }
             catch (Exception)
             {

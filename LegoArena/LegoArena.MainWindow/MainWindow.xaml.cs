@@ -12,6 +12,8 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using LegoArena.ClassLibrary;
+using Lego.Ev3.Core;
 
 namespace LegoArena.MainWindow
 {
@@ -20,9 +22,39 @@ namespace LegoArena.MainWindow
     /// </summary>
     public partial class MainWindow : Window
     {
+        UltrasonicSensor ultrasonicSensor;
+        GyroSensor gyroSensor;
+        ColourSensor colourSensor;
+        Motor motor;
         public MainWindow()
         {
             InitializeComponent();
+            
+            Loaded += MainWindow_Loaded;
+        }
+
+        private async void MainWindow_Loaded(object sender, RoutedEventArgs e)
+        {
+            Controller controller = new Controller();
+            await Controller.TeamBrick.ConnectASync();
+            this.ultrasonicSensor = new UltrasonicSensor();
+            this.gyroSensor = new GyroSensor();
+            this.colourSensor = new ColourSensor();
+            this.motor = new Motor();
+            Controller.TeamBrick.Brick.BrickChanged += SensorTest;
+            TestMotors();
+        }
+
+        public async void SensorTest(object sender, BrickChangedEventArgs e)
+        {
+            GyroValue.Content = gyroSensor.GetValue();
+            UltraSonicValue.Content = ultrasonicSensor.GetValue();
+            ColourValue.Content = colourSensor.GetValue();
+        }
+        public async void TestMotors()
+        {
+            await motor.TurnMotorAtPowerForTimeAsync(OutputPort.A, 100, 1000, false);
+            await motor.TurnMotorAtPowerForTimeAsync(OutputPort.D, 100, 1000, false);
         }
     }
 }
