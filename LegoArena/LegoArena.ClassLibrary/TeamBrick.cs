@@ -13,7 +13,7 @@ namespace LegoArena.ClassLibrary
 {
     public class TeamBrick
     {
-        public Brick brick;
+        private Brick brick;
 
         public Brick Brick
         {
@@ -38,11 +38,6 @@ namespace LegoArena.ClassLibrary
             {
                 throw new Exception("Brick connection error.");
             }
-        }
-
-        public void OnBrickChanged(object sender, BrickChangedEventArgs e)
-        {
-
         }
     }
 }

@@ -34,7 +34,6 @@ namespace LegoArena.ClassLibrary
             motor = new Motor();
 
             teamBrick.ConnectASync();
-            teamBrick.Brick.BrickChanged += teamBrick.Brick.OnBrickChanged;
         }
 
 
