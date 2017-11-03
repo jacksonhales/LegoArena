@@ -17,7 +17,7 @@ namespace LegoArena.ClassLibrary
 
     class Controller
     {
-        Brick brick;
+        TeamBrick teamBrick;
         GyroSensor gyroSensor;
         ColourSensor colourSensor;
         UltrasonicSensor ultrasonicSensor;
@@ -26,32 +26,18 @@ namespace LegoArena.ClassLibrary
 
         public Controller()
         {
+            teamBrick = new TeamBrick();
             gyroSensor = new GyroSensor();
             colourSensor = new ColourSensor();
             ultrasonicSensor = new UltrasonicSensor();
             movement = new Movement();
             motor = new Motor();
 
-            ConnectBrickAsync();
+            teamBrick.ConnectASync();
+            teamBrick.Brick.BrickChanged += teamBrick.Brick.OnBrickChanged;
         }
 
-        public void ConnectBrickAsync()
-        {
-            try
-            {
-                brick = new Brick(new UsbCommunication());
-                brick.ConnectAsync();
-                brick.BrickChanged += OnBrickChanged;
-            }
-            catch (Exception)
-            {
-                throw new Exception("Brick connection error.");
-            }
-        }
 
-        void OnBrickChanged(object sender, BrickChangedEventArgs e)
-        {
-            
-        }
+
     }
 }

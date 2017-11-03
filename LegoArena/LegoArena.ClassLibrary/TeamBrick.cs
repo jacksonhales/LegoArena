@@ -13,11 +13,36 @@ namespace LegoArena.ClassLibrary
 {
     public class TeamBrick
     {
-        Brick brick;
+        public Brick brick;
 
-        public TeamBrick()
+        public Brick Brick
         {
-            brick = new Brick(new UsbCommunication());
+            get
+            {
+                return brick;
+            }
+            set
+            {
+                brick = value;
+            }
+        }
+        
+        public void ConnectASync()
+        {
+            try
+            {
+                brick = new Brick(new UsbCommunication());
+                brick.ConnectAsync();
+            }
+            catch (Exception)
+            {
+                throw new Exception("Brick connection error.");
+            }
+        }
+
+        public void OnBrickChanged(object sender, BrickChangedEventArgs e)
+        {
+
         }
     }
 }
