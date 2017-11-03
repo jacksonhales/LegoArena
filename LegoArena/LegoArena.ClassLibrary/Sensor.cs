@@ -17,7 +17,7 @@ namespace LegoArena.ClassLibrary
         public float sensorValue;
         public Sensor()
         {
-            brick.BrickChanged += Brick_BrickChanged;
+            Brick.BrickChanged += Brick_BrickChanged;
         }
 
         public async void Brick_BrickChanged(object sender, BrickChangedEventArgs e)
