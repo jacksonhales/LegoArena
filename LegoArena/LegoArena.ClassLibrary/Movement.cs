@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace LegoArena.ClassLibrary
 {
-    class Movement
+    public class Movement
     {
         private int movement;
 
