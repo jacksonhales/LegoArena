@@ -3,9 +3,13 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
+using System.Windows.Input;
 using Lego;
 using Lego.Ev3;
 using Lego.Ev3.Desktop;
+using Lego.Ev3.Core;
+using System.Diagnostics;
 
 namespace LegoArena.ClassLibrary
 {       
@@ -22,12 +26,32 @@ namespace LegoArena.ClassLibrary
 
         public Controller()
         {
-            brick = new Brick();
             gyroSensor = new GyroSensor();
             colourSensor = new ColourSensor();
             ultrasonicSensor = new UltrasonicSensor();
             movement = new Movement();
             motor = new Motor();
+
+            ConnectBrickAsync();
+        }
+
+        public void ConnectBrickAsync()
+        {
+            try
+            {
+                brick = new Brick(new UsbCommunication());
+                brick.ConnectAsync();
+                brick.BrickChanged += OnBrickChanged;
+            }
+            catch (Exception)
+            {
+                throw new Exception("Brick connection error.");
+            }
+        }
+
+        void OnBrickChanged(object sender, BrickChangedEventArgs e)
+        {
+            
         }
     }
 }
