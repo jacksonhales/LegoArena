@@ -12,14 +12,12 @@ namespace LegoArena.ClassLibrary
 {
     public abstract class Sensor
     {
-        public TeamBrick brick = Controller.teamBrick;
-
         public InputPort sensorPort;
 
         public float sensorValue;
         public Sensor()
         {
-            brick.Brick.BrickChanged += Brick_BrickChanged;
+            Controller.TeamBrick.Brick.BrickChanged += Brick_BrickChanged;
         }
 
         public async void Brick_BrickChanged(object sender, BrickChangedEventArgs e)

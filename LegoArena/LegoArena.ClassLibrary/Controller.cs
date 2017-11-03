@@ -24,7 +24,7 @@ namespace LegoArena.ClassLibrary
         private Movement movement;
         private Motor motor;
 
-        public TeamBrick TeamBrick
+        public static TeamBrick TeamBrick
         {
             get
             {
