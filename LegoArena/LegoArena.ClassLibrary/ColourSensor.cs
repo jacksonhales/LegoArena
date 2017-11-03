@@ -12,6 +12,9 @@ namespace LegoArena.ClassLibrary
 {
     public class ColourSensor : Sensor
     {
-
+        public ColourSensor()
+        {
+            this.sensorPort = InputPort.Two;
+        }
     }
 }

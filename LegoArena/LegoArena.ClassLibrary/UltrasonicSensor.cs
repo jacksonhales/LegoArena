@@ -12,6 +12,9 @@ namespace LegoArena.ClassLibrary
 {
     public class UltrasonicSensor : Sensor
     {
-
+        public UltrasonicSensor()
+        {
+            this.sensorPort = InputPort.Three;
+        }
     }
 }
