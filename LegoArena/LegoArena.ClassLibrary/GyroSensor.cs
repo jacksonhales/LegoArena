@@ -10,7 +10,7 @@ using Lego.Ev3.Core;
 
 namespace LegoArena.ClassLibrary
 {
-    class GyroSensor : Sensor
+    public class GyroSensor : Sensor
     {
         public GyroSensor()
         {

@@ -15,14 +15,86 @@ namespace LegoArena.ClassLibrary
 {       
     // JACKSONS CODE
 
-    class Controller
+    public class Controller
     {
-        TeamBrick teamBrick;
-        GyroSensor gyroSensor;
-        ColourSensor colourSensor;
-        UltrasonicSensor ultrasonicSensor;
-        Movement movement;
-        Motor motor;
+        private static TeamBrick teamBrick;
+        private GyroSensor gyroSensor;
+        private ColourSensor colourSensor;
+        private UltrasonicSensor ultrasonicSensor;
+        private Movement movement;
+        private Motor motor;
+
+        public TeamBrick TeamBrick
+        {
+            get
+            {
+                return teamBrick;
+            }
+            set
+            {
+                teamBrick = value;
+            }
+        }
+
+        public GyroSensor GyroSensor
+        {
+            get
+            {
+                return gyroSensor;
+            }
+            set
+            {
+                gyroSensor = value;
+            }
+        }
+
+        public ColourSensor ColourSensor
+        {
+            get
+            {
+                return colourSensor;
+            }
+            set
+            {
+                colourSensor = value;
+            }
+        }
+
+        public UltrasonicSensor UltrasonicSensor
+        {
+            get
+            {
+                return ultrasonicSensor;
+            }
+            set
+            {
+                ultrasonicSensor = value;
+            }
+        }
+
+        public Movement Movement
+        {
+            get
+            {
+                return movement;
+            }
+            set
+            {
+                movement = value;
+            }
+        }
+
+        public Motor Motor
+        {
+            get
+            {
+                return motor;
+            }
+            set
+            {
+                motor = value;
+            }
+        }
 
         public Controller()
         {

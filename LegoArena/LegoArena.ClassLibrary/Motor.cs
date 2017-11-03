@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace LegoArena.ClassLibrary
 {
-    class Motor
+    public class Motor
     {
     }
 }
