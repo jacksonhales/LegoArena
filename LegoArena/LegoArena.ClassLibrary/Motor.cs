@@ -8,7 +8,7 @@ using Lego.Ev3.Desktop;
 namespace LegoArena.ClassLibrary
 {
     //Dylan's Code
-    class Motor
+    public class Motor
     {
         public void MoveLeft()
         {
