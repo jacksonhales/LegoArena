@@ -17,7 +17,7 @@ namespace LegoArena.ClassLibrary
 
     class Controller
     {
-        TeamBrick teamBrick;
+        static public TeamBrick teamBrick;
         GyroSensor gyroSensor;
         ColourSensor colourSensor;
         UltrasonicSensor ultrasonicSensor;

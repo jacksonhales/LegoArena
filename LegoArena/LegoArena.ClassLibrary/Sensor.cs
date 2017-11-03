@@ -10,14 +10,16 @@ using Lego.Ev3.Core;
 
 namespace LegoArena.ClassLibrary
 {
-    public abstract class Sensor : TeamBrick
+    public abstract class Sensor
     {
+        public TeamBrick brick = Controller.teamBrick;
+
         public InputPort sensorPort;
 
         public float sensorValue;
         public Sensor()
         {
-            Brick.BrickChanged += Brick_BrickChanged;
+            brick.Brick.BrickChanged += Brick_BrickChanged;
         }
 
         public async void Brick_BrickChanged(object sender, BrickChangedEventArgs e)
