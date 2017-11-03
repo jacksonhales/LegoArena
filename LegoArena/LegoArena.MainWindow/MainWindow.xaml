@@ -25,10 +25,17 @@
             <Button x:Name="FindSequence" Grid.Column="1" Grid.Row="2" VerticalAlignment="Center" Width="85" Margin="7" Background="BlanchedAlmond" Foreground="Black">Find Sequence</Button>
             <Button x:Name="FindBlock" Grid.Column="1" Grid.Row="2" VerticalAlignment="Bottom" Width="85" Margin="7" Background="BlanchedAlmond" Foreground="Black">Find Block</Button>
         </StackPanel>
-        <DataGrid Grid.Column="1" Grid.Row="1">
-            <DataGrid.Columns>
-                <
-            </DataGrid.Columns>
-        </DataGrid>
+        
+            <StackPanel Grid.Column="0" Grid.Row="1">
+                <Label x:Name="Gyro">Gyro Sensor: </Label>
+                <Label x:Name="UltraSonic">UltraSonic Sensor: </Label>
+            <Label x:Name="Colour">Color Sensor</Label>
+            </StackPanel>
+        <StackPanel Grid.Column="1" Grid.Row="1">
+            <Label x:Name="GyroValue"></Label>
+            <Label x:Name="UltraSonicValue"></Label>
+            <Label x:Name="ColourValue"></Label>
+        </StackPanel>
+
     </Grid>
 </Window>
