@@ -41,46 +41,20 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="..\Lego.Ev3.Core\Brick.cs">
-      <Link>Core\Brick.cs</Link>
-    </Compile>
-    <Compile Include="..\Lego.Ev3.Core\BrickButtons.cs">
-      <Link>Core\BrickButtons.cs</Link>
-    </Compile>
-    <Compile Include="..\Lego.Ev3.Core\BrickChangedEventArgs.cs">
-      <Link>Core\BrickChangedEventArgs.cs</Link>
-    </Compile>
-    <Compile Include="..\Lego.Ev3.Core\Command.cs">
-      <Link>Core\Command.cs</Link>
-    </Compile>
-    <Compile Include="..\Lego.Ev3.Core\DataReceivedEventArgs.cs">
-      <Link>Core\DataReceivedEventArgs.cs</Link>
-    </Compile>
-    <Compile Include="..\Lego.Ev3.Core\DirectCommand.cs">
-      <Link>Core\DirectCommand.cs</Link>
-    </Compile>
-    <Compile Include="..\Lego.Ev3.Core\DummyCommunication.cs">
-      <Link>Core\DummyCommunication.cs</Link>
-    </Compile>
-    <Compile Include="..\Lego.Ev3.Core\Enums.cs">
-      <Link>Core\Enums.cs</Link>
-    </Compile>
-    <Compile Include="..\Lego.Ev3.Core\ICommunication.cs">
-      <Link>Core\ICommunication.cs</Link>
-    </Compile>
-    <Compile Include="..\Lego.Ev3.Core\Port.cs">
-      <Link>Core\Port.cs</Link>
-    </Compile>
-    <Compile Include="..\Lego.Ev3.Core\Response.cs">
-      <Link>Core\Response.cs</Link>
-    </Compile>
-    <Compile Include="..\Lego.Ev3.Core\ResponseManager.cs">
-      <Link>Core\ResponseManager.cs</Link>
-    </Compile>
-    <Compile Include="..\Lego.Ev3.Core\SystemCommand.cs">
-      <Link>Core\SystemCommand.cs</Link>
-    </Compile>
     <Compile Include="BluetoothCommunication.cs" />
+    <Compile Include="Core\Brick.cs" />
+    <Compile Include="Core\BrickButtons.cs" />
+    <Compile Include="Core\BrickChangedEventArgs.cs" />
+    <Compile Include="Core\Command.cs" />
+    <Compile Include="Core\DataReceivedEventArgs.cs" />
+    <Compile Include="Core\DirectCommand.cs" />
+    <Compile Include="Core\DummyCommunication.cs" />
+    <Compile Include="Core\Enums.cs" />
+    <Compile Include="Core\ICommunication.cs" />
+    <Compile Include="Core\Port.cs" />
+    <Compile Include="Core\Response.cs" />
+    <Compile Include="Core\ResponseManager.cs" />
+    <Compile Include="Core\SystemCommand.cs" />
     <Compile Include="UsbCommunication.cs" />
     <Compile Include="HidImports.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
