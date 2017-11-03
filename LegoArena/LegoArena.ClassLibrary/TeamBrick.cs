@@ -13,7 +13,7 @@ namespace LegoArena.ClassLibrary
 {
     public class TeamBrick
     {
-        Brick brick;
+        public Brick brick;
 
         public TeamBrick()
         {
