@@ -16,5 +16,18 @@ namespace LegoArena.Tests
             // assert
             await Controller.TeamBrick.ConnectASync();
         }
+
+        [TestMethod]
+        public async Task TestMotorSpin()
+        {
+            // arrange
+            Controller testController = new Controller();
+
+
+            //
+
+            // assert
+            
+        }
     }
 }

@@ -99,6 +99,10 @@ namespace LegoArena.ClassLibrary
         public Controller()
         {
             teamBrick = new TeamBrick();
+            ultrasonicSensor = new UltrasonicSensor();
+            gyroSensor = new GyroSensor();
+            colourSensor = new ColourSensor();
+            motor = new Motor();
         }
         
     }
