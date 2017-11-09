@@ -105,7 +105,6 @@ namespace LegoArena.ClassLibrary
             movement = new Movement();
             motor = new Motor();
 
-            teamBrick.ConnectASync();
         }
 
 

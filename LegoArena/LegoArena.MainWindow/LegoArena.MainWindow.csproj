@@ -93,5 +93,15 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\Lego.Ev3.Desktop\Lego.Ev3.Desktop.csproj">
+      <Project>{79c444de-86f1-4aff-903a-4b6ed31655ea}</Project>
+      <Name>Lego.Ev3.Desktop</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\LegoArena.ClassLibrary\LegoArena.ClassLibrary.csproj">
+      <Project>{b69e4c5c-5250-4813-90d1-dff9ab64d80c}</Project>
+      <Name>LegoArena.ClassLibrary</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

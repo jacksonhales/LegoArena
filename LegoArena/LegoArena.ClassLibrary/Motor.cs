@@ -12,29 +12,25 @@ namespace LegoArena.ClassLibrary
     //Dylan's Code
     public class Motor
     {
-        public async void TurnMotorAtPowerAsync(OutputPort outPort, int power)
+        public async Task TurnMotorAtPowerAsync(OutputPort outPort, int power)
         {
             await Controller.TeamBrick.Brick.DirectCommand.TurnMotorAtPowerAsync(outPort, power);
         }
 
-        public async void TurnMotorAtSpeedAsync(OutputPort outPort, int speed)
+        public async Task TurnMotorAtSpeedAsync(OutputPort outPort, int speed)
         {
             await Controller.TeamBrick.Brick.DirectCommand.TurnMotorAtSpeedAsync(outPort, speed);
         }
         
-        public async void TurnMotorAtPowerForTimeAsync(OutputPort outPort, int power, uint time, bool Bool)
+        public async Task TurnMotorAtPowerForTimeAsync(OutputPort outPort, int power, uint time, bool Bool)
         {
             await Controller.TeamBrick.Brick.DirectCommand.TurnMotorAtPowerForTimeAsync(outPort, power, time, Bool);
         }
 
-        public async void TurnMotorAtSpeedForTimeAsync(OutputPort outPort, int speed, uint time, bool Bool)
+        public async Task TurnMotorAtSpeedForTimeAsync(OutputPort outPort, int speed, uint time, bool Bool)
         {
             await Controller.TeamBrick.Brick.DirectCommand.TurnMotorAtSpeedForTimeAsync(outPort, speed, time, Bool);
         }
-        /*public async void Brick_BrickChanged(object sender, BrickChangedEventArgs e)
-        {
-
-        }*/
     }
     
 
