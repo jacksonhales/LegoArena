@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
-VisualStudioVersion = 15.0.26730.12
+VisualStudioVersion = 15.0.26430.6
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LegoArena.ClassLibrary", "LegoArena.ClassLibrary\LegoArena.ClassLibrary.csproj", "{B69E4C5C-5250-4813-90D1-DFF9AB64D80C}"
 EndProject
@@ -13,6 +13,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Resources", "Resources", "{
 	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LegoArena.MainWindow", "LegoArena.MainWindow\LegoArena.MainWindow.csproj", "{3D1520D7-8220-46F9-9EB5-5084C234F016}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LegoArena.Tests", "LegoArena.Tests\LegoArena.Tests.csproj", "{48E2DB87-E919-47EF-8BAC-EBEAD3FF1589}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -32,6 +34,10 @@ Global
 		{3D1520D7-8220-46F9-9EB5-5084C234F016}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3D1520D7-8220-46F9-9EB5-5084C234F016}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3D1520D7-8220-46F9-9EB5-5084C234F016}.Release|Any CPU.Build.0 = Release|Any CPU
+		{48E2DB87-E919-47EF-8BAC-EBEAD3FF1589}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{48E2DB87-E919-47EF-8BAC-EBEAD3FF1589}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{48E2DB87-E919-47EF-8BAC-EBEAD3FF1589}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{48E2DB87-E919-47EF-8BAC-EBEAD3FF1589}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
