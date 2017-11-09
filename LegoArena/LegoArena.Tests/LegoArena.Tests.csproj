@@ -4,7 +4,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{48E2DB87-E919-47EF-8BAC-EBEAD3FF1589}</ProjectGuid>
+    <ProjectGuid>{F6275BE4-7569-44B6-AD36-2052D809D414}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>LegoArena.Tests</RootNamespace>
@@ -48,10 +48,21 @@
     <Reference Include="System.Core" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="LegoTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\Lego.Ev3.Desktop\Lego.Ev3.Desktop.csproj">
+      <Project>{79c444de-86f1-4aff-903a-4b6ed31655ea}</Project>
+      <Name>Lego.Ev3.Desktop</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\LegoArena.ClassLibrary\LegoArena.ClassLibrary.csproj">
+      <Project>{b69e4c5c-5250-4813-90d1-dff9ab64d80c}</Project>
+      <Name>LegoArena.ClassLibrary</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets" Condition="Exists('$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets')" />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

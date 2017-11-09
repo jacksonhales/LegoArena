@@ -26,6 +26,7 @@ namespace LegoArena.MainWindow
         GyroSensor gyroSensor;
         ColourSensor colourSensor;
         Motor motor;
+
         public MainWindow()
         {
             InitializeComponent();
@@ -35,12 +36,15 @@ namespace LegoArena.MainWindow
 
         private async void MainWindow_Loaded(object sender, RoutedEventArgs e)
         {
+
             Controller controller = new Controller();
             await Controller.TeamBrick.ConnectASync();
+
             this.ultrasonicSensor = new UltrasonicSensor();
             this.gyroSensor = new GyroSensor();
             this.colourSensor = new ColourSensor();
             this.motor = new Motor();
+
             Controller.TeamBrick.Brick.BrickChanged += SensorTest;
             TestMotors();
         }
@@ -51,6 +55,7 @@ namespace LegoArena.MainWindow
             UltraSonicValue.Content = ultrasonicSensor.GetValue();
             ColourValue.Content = colourSensor.GetValue();
         }
+
         public async void TestMotors()
         {
             await motor.TurnMotorAtPowerForTimeAsync(OutputPort.A, 100, 1000, false);

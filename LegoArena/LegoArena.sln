@@ -14,7 +14,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Resources", "Resources", "{
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LegoArena.MainWindow", "LegoArena.MainWindow\LegoArena.MainWindow.csproj", "{3D1520D7-8220-46F9-9EB5-5084C234F016}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LegoArena.Tests", "LegoArena.Tests\LegoArena.Tests.csproj", "{48E2DB87-E919-47EF-8BAC-EBEAD3FF1589}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LegoArena.Tests", "LegoArena.Tests\LegoArena.Tests.csproj", "{F6275BE4-7569-44B6-AD36-2052D809D414}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -34,10 +34,10 @@ Global
 		{3D1520D7-8220-46F9-9EB5-5084C234F016}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3D1520D7-8220-46F9-9EB5-5084C234F016}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3D1520D7-8220-46F9-9EB5-5084C234F016}.Release|Any CPU.Build.0 = Release|Any CPU
-		{48E2DB87-E919-47EF-8BAC-EBEAD3FF1589}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{48E2DB87-E919-47EF-8BAC-EBEAD3FF1589}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{48E2DB87-E919-47EF-8BAC-EBEAD3FF1589}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{48E2DB87-E919-47EF-8BAC-EBEAD3FF1589}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F6275BE4-7569-44B6-AD36-2052D809D414}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F6275BE4-7569-44B6-AD36-2052D809D414}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F6275BE4-7569-44B6-AD36-2052D809D414}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F6275BE4-7569-44B6-AD36-2052D809D414}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
