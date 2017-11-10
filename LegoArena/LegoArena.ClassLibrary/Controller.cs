@@ -95,12 +95,52 @@ namespace LegoArena.ClassLibrary
         
         public async void FindWall()
         {
-            
-            while (UltrasonicSensor.sensorValue < 10)
+            while (UltrasonicSensor.sensorValue <= 10)
             {
-                await Motor.TurnMotorAtPowerForTimeAsync(OutputPort.A, 50, 1000, true);
-                await Motor.TurnMotorAtPowerForTimeAsync(OutputPort.D, 50, 1000, true);
+                await Motor.TurnMotorAtPowerForTimeAsync(OutputPort.A | OutputPort.D, 50, 1000, true); 
                 await Task.Delay(2000);
+            }
+        }
+
+        public async void TurnLeft()
+        {
+            await Task.Delay(100);
+            float originalGyroValue = GyroSensor.sensorValue;
+
+            while (GyroSensor.sensorValue > originalGyroValue - 90)
+            {
+                TeamBrick.Brick.BatchCommand.TurnMotorAtPowerForTime(OutputPort.A, -40, 80, true);
+                TeamBrick.Brick.BatchCommand.TurnMotorAtPowerForTime(OutputPort.D, 40, 80, true);
+                await TeamBrick.Brick.BatchCommand.SendCommandAsync();
+                await Task.Delay(100);
+            }
+        }
+
+        public async void TurnRight()
+        {
+            await Task.Delay(100);
+            float originalGyroValue = GyroSensor.sensorValue;
+
+            while (GyroSensor.sensorValue > originalGyroValue + 90)
+            {
+                TeamBrick.Brick.BatchCommand.TurnMotorAtPowerForTime(OutputPort.A, 40, 80, true);
+                TeamBrick.Brick.BatchCommand.TurnMotorAtPowerForTime(OutputPort.D, -40, 80, true);
+                await TeamBrick.Brick.BatchCommand.SendCommandAsync();
+                await Task.Delay(100);
+            }
+        }
+
+        public async void TurnAround()
+        {
+            await Task.Delay(100);
+            float originalGyroValue = GyroSensor.sensorValue;
+
+            while (GyroSensor.sensorValue > originalGyroValue - 180)
+            {
+                TeamBrick.Brick.BatchCommand.TurnMotorAtPowerForTime(OutputPort.A, -40, 80, true);
+                TeamBrick.Brick.BatchCommand.TurnMotorAtPowerForTime(OutputPort.D, 40, 80, true);
+                await TeamBrick.Brick.BatchCommand.SendCommandAsync();
+                await Task.Delay(100);
             }
         }
     }
