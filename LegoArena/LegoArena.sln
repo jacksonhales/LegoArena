@@ -7,11 +7,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LegoArena.ClassLibrary", "L
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Lego.Ev3.Desktop", "..\Lego.Ev3.Desktop\Lego.Ev3.Desktop.csproj", "{79C444DE-86F1-4AFF-903A-4B6ED31655EA}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Resources", "Resources", "{FE6949F2-CC7C-4348-8A08-009BDB6FE858}"
-	ProjectSection(SolutionItems) = preProject
-		..\..\wireframe.png = ..\..\wireframe.png
-	EndProjectSection
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LegoArena.MainWindow", "LegoArena.MainWindow\LegoArena.MainWindow.csproj", "{3D1520D7-8220-46F9-9EB5-5084C234F016}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LegoArena.Tests", "LegoArena.Tests\LegoArena.Tests.csproj", "{F6275BE4-7569-44B6-AD36-2052D809D414}"
