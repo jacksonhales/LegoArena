@@ -21,7 +21,6 @@ namespace LegoArena.ClassLibrary
         private GyroSensor gyroSensor;
         private ColourSensor colourSensor;
         private UltrasonicSensor ultrasonicSensor;
-        private Movement movement;
         private Motor motor;
 
         public static TeamBrick TeamBrick
@@ -72,18 +71,6 @@ namespace LegoArena.ClassLibrary
             }
         }
 
-        public Movement Movement
-        {
-            get
-            {
-                return movement;
-            }
-            set
-            {
-                movement = value;
-            }
-        }
-
         public Motor Motor
         {
             get
@@ -99,15 +86,68 @@ namespace LegoArena.ClassLibrary
         public Controller()
         {
             teamBrick = new TeamBrick();
+            ultrasonicSensor = new UltrasonicSensor();
             gyroSensor = new GyroSensor();
             colourSensor = new ColourSensor();
-            ultrasonicSensor = new UltrasonicSensor();
-            movement = new Movement();
             motor = new Motor();
-
+            
+        }
+        
+        public async Task FindWall()
+        {
+            while (UltrasonicSensor.sensorValue <= 10)
+            {
+                await Motor.TurnMotorAtPowerForTimeAsync(OutputPort.A | OutputPort.D, 50, 1000, true); 
+                await Task.Delay(2000);
+            }
         }
 
+        public async Task TurnLeft()
+        {
+            await Task.Delay(100);
+            float originalGyroValue = GyroSensor.sensorValue;
+            //var value = await TeamBrick.Brick.DirectCommand.ReadySIAsync(InputPort.One, 0);
 
+            while (GyroSensor.sensorValue >= originalGyroValue - 90)
+            {
+                
+                TeamBrick.Brick.BatchCommand.TurnMotorAtPowerForTime(OutputPort.A, -25, 10, false);
+                TeamBrick.Brick.BatchCommand.TurnMotorAtPowerForTime(OutputPort.D, 25, 10, false);
+                await TeamBrick.Brick.BatchCommand.SendCommandAsync();
+                await Task.Delay(10);
+            }
+            //await Task.Delay(100);
+        }
 
+        public async Task TurnRight()
+        {
+            await Task.Delay(100);
+            float originalGyroValue = GyroSensor.sensorValue;
+
+            var value = await TeamBrick.Brick.DirectCommand.ReadySIAsync(InputPort.One, 0);
+
+            while (value <= originalGyroValue + 90)
+            {
+                TeamBrick.Brick.BatchCommand.TurnMotorAtPowerForTime(OutputPort.A, 20, 2, false);
+                TeamBrick.Brick.BatchCommand.TurnMotorAtPowerForTime(OutputPort.D, -20, 2, false);
+                await TeamBrick.Brick.BatchCommand.SendCommandAsync();
+                await Task.Delay(1);
+            }
+            //await Task.Delay(100);
+        }
+
+        public async Task TurnAround()
+        {
+            await Task.Delay(100);
+            float originalGyroValue = GyroSensor.sensorValue;
+
+            while (GyroSensor.sensorValue >= originalGyroValue - 180)
+            {
+                TeamBrick.Brick.BatchCommand.TurnMotorAtPowerForTime(OutputPort.A, -20, 2, false);
+                TeamBrick.Brick.BatchCommand.TurnMotorAtPowerForTime(OutputPort.D, 20, 2, false);
+                await TeamBrick.Brick.BatchCommand.SendCommandAsync();
+                await Task.Delay(1);
+            }
+        }
     }
 }
