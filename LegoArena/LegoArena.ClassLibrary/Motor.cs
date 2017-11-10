@@ -32,6 +32,4 @@ namespace LegoArena.ClassLibrary
             await Controller.TeamBrick.Brick.DirectCommand.TurnMotorAtSpeedForTimeAsync(outPort, speed, time, Bool);
         }
     }
-    
-
 }
