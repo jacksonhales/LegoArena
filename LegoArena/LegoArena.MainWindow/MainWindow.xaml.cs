@@ -38,7 +38,9 @@ namespace LegoArena.MainWindow
             
             Controller.TeamBrick.Brick.BrickChanged += SensorTest;
 
-            controller.Turn();
+            await controller.TurnLeft();
+            //await controller.TurnRight();
+            //await controller.TurnAround();
         }
 
         public async void SensorTest(object sender, BrickChangedEventArgs e)
