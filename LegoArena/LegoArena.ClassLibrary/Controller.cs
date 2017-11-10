@@ -21,7 +21,6 @@ namespace LegoArena.ClassLibrary
         private GyroSensor gyroSensor;
         private ColourSensor colourSensor;
         private UltrasonicSensor ultrasonicSensor;
-        private Movement movement;
         private Motor motor;
 
         public static TeamBrick TeamBrick
@@ -72,18 +71,6 @@ namespace LegoArena.ClassLibrary
             }
         }
 
-        public Movement Movement
-        {
-            get
-            {
-                return movement;
-            }
-            set
-            {
-                movement = value;
-            }
-        }
-
         public Motor Motor
         {
             get
@@ -103,7 +90,18 @@ namespace LegoArena.ClassLibrary
             gyroSensor = new GyroSensor();
             colourSensor = new ColourSensor();
             motor = new Motor();
+            
         }
         
+        public async void FindWall()
+        {
+            
+            while (UltrasonicSensor.sensorValue < 10)
+            {
+                await Motor.TurnMotorAtPowerForTimeAsync(OutputPort.A, 50, 1000, true);
+                await Motor.TurnMotorAtPowerForTimeAsync(OutputPort.D, 50, 1000, true);
+                await Task.Delay(2000);
+            }
+        }
     }
 }
