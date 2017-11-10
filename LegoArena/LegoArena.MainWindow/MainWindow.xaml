@@ -22,7 +22,7 @@
             <RowDefinition Height="0.2*"/>
         </Grid.RowDefinitions>
 
-        <Border Grid.Column="1" Grid.Row="1" BorderBrush="BlanchedAlmond" BorderThickness="5">
+        <Border Grid.Column="1" Grid.Row="1" BorderBrush="BlanchedAlmond" BorderThickness="3">
         <Grid>
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="3*"/>
@@ -41,8 +41,8 @@
             <Label x:Name="ColourValue" Grid.Column="1" Grid.Row="2" FontWeight="Bold" Foreground="BlanchedAlmond"></Label>
         </Grid>
         </Border>
-        
-        
+
+        <Border Grid.Column="1" BorderBrush="BlanchedAlmond" BorderThickness="3">
         <Grid Grid.Column="1">
             <Grid.Background>
                 <ImageBrush ImageSource="Resources/YellowBackground.jpg"/>
@@ -50,7 +50,9 @@
             <TextBlock x:Name="Title" Grid.Column="1" VerticalAlignment="Top" HorizontalAlignment="Center" FontWeight="Bold" FontSize="40" Foreground="BlanchedAlmond">LEGO ARENA</TextBlock>
          
         </Grid>
+        </Border>
 
+        <Border Grid.Column="1" Grid.Row="2" BorderBrush="BlanchedAlmond" BorderThickness="3">
         <StackPanel Grid.Column="1" Grid.Row="2" VerticalAlignment="Center">
             
             <Button x:Name="FindHome" Grid.Column="1" Grid.Row="2" VerticalAlignment="Top" Width="85" Margin="7" Foreground="BlanchedAlmond">Find Home
@@ -69,5 +71,6 @@
                 </Button.Background>
             </Button>
         </StackPanel>
+        </Border>
     </Grid>
 </Window>
