@@ -15,6 +15,7 @@ namespace LegoArena.ClassLibrary
         public InputPort sensorPort;
 
         public float sensorValue;
+
         public Sensor()
         {
             Controller.TeamBrick.Brick.BrickChanged += Brick_BrickChanged;

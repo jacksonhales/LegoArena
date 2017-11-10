@@ -22,10 +22,8 @@ namespace LegoArena.MainWindow
     /// </summary>
     public partial class MainWindow : Window
     {
-        UltrasonicSensor ultrasonicSensor;
-        GyroSensor gyroSensor;
-        ColourSensor colourSensor;
-        Motor motor;
+        Controller controller;
+
         public MainWindow()
         {
             InitializeComponent();
@@ -35,26 +33,25 @@ namespace LegoArena.MainWindow
 
         private async void MainWindow_Loaded(object sender, RoutedEventArgs e)
         {
-            Controller controller = new Controller();
+            controller = new Controller();
             await Controller.TeamBrick.ConnectASync();
-            this.ultrasonicSensor = new UltrasonicSensor();
-            this.gyroSensor = new GyroSensor();
-            this.colourSensor = new ColourSensor();
-            this.motor = new Motor();
+            
             Controller.TeamBrick.Brick.BrickChanged += SensorTest;
+
             TestMotors();
         }
 
         public async void SensorTest(object sender, BrickChangedEventArgs e)
         {
-            GyroValue.Content = gyroSensor.GetValue();
-            UltraSonicValue.Content = ultrasonicSensor.GetValue();
-            ColourValue.Content = colourSensor.GetValue();
+            GyroValue.Content = controller.GyroSensor.GetValue();
+            UltraSonicValue.Content = controller.UltrasonicSensor.GetValue();
+            ColourValue.Content = controller.ColourSensor.GetValue();
         }
+
         public async void TestMotors()
         {
-            await motor.TurnMotorAtPowerForTimeAsync(OutputPort.A, 100, 1000, false);
-            await motor.TurnMotorAtPowerForTimeAsync(OutputPort.D, 100, 1000, false);
+            await controller.Motor.TurnMotorAtPowerForTimeAsync(OutputPort.A, 100, 1000, false);
+            await controller.Motor.TurnMotorAtPowerForTimeAsync(OutputPort.D, 100, 1000, false);
         }
     }
 }
