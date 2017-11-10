@@ -31,14 +31,14 @@
                 <RowDefinition />
                 <RowDefinition />
             </Grid.RowDefinitions>
-            <TextBlock x:Name="TextGyro" FontWeight="Bold">Gyro Sensor: </TextBlock>
-            <TextBlock x:Name="TextUltra" Grid.Row="1" FontWeight="Bold">UltraSonic  Sensor: </TextBlock>
-            <TextBlock x:Name="TextColor" Grid.Row="2" FontWeight="Bold">Colour Sensor: </TextBlock>
-            <Label x:Name="GyroValue" Grid.Column="1" FontWeight="Bold"></Label>
-            <Label x:Name="UltraSonicValue" Grid.Column="1" Grid.Row="1" FontWeight="Bold"></Label>
-            <Label x:Name="ColourValue" Grid.Column="1" Grid.Row="2" FontWeight="Bold"></Label>
+            <TextBlock x:Name="TextGyro" FontWeight="Bold" Foreground="BlanchedAlmond">Gyro Sensor: </TextBlock>
+            <TextBlock x:Name="TextUltra" Grid.Row="1" FontWeight="Bold" Foreground="BlanchedAlmond">UltraSonic  Sensor: </TextBlock>
+            <TextBlock x:Name="TextColor" Grid.Row="2" FontWeight="Bold" Foreground="BlanchedAlmond">Colour Sensor: </TextBlock>
+            <Label x:Name="GyroValue" Grid.Column="1" FontWeight="Bold" Foreground="BlanchedAlmond"></Label>
+            <Label x:Name="UltraSonicValue" Grid.Column="1" Grid.Row="1" FontWeight="Bold" Foreground="BlanchedAlmond"></Label>
+            <Label x:Name="ColourValue" Grid.Column="1" Grid.Row="2" FontWeight="Bold" Foreground="BlanchedAlmond"></Label>
         </Grid>
-        <Label x:Name="Title" Grid.Column="1" VerticalAlignment="Top" HorizontalAlignment="Center" FontWeight="Bold" FontSize="20">LEGO ARENA</Label>
+        <Label x:Name="Title" Grid.Column="1" VerticalAlignment="Top" HorizontalAlignment="Center" FontWeight="Bold" FontSize="20" Foreground="BlanchedAlmond">LEGO ARENA</Label>
         <Image x:Name="ImageLeft" Grid.Row="2" />
         <Image x:Name="ImageRight" Grid.Column="2" Grid.Row="2" />
         <StackPanel Grid.Column="1" Grid.Row="2" VerticalAlignment="Center">
