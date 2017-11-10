@@ -8,7 +8,7 @@
         Title="MainWindow" Height="350" Width="525" >
     <Grid>
         <Grid.Background>
-            <ImageBrush />
+            <ImageBrush ImageSource="Resources/Background.jpg"/>
         </Grid.Background>
         <Grid.ColumnDefinitions>
             <ColumnDefinition />

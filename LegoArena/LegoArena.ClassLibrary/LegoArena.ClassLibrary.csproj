@@ -44,7 +44,6 @@
     <Compile Include="Controller.cs" />
     <Compile Include="GyroSensor.cs" />
     <Compile Include="Motor.cs" />
-    <Compile Include="Movement.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Sensor.cs" />
     <Compile Include="TeamBrick.cs" />

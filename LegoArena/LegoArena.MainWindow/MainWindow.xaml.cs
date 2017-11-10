@@ -38,7 +38,7 @@ namespace LegoArena.MainWindow
             
             Controller.TeamBrick.Brick.BrickChanged += SensorTest;
 
-            TestMotors();
+            controller.FindWall();
         }
 
         public async void SensorTest(object sender, BrickChangedEventArgs e)
@@ -50,8 +50,8 @@ namespace LegoArena.MainWindow
 
         public async void TestMotors()
         {
-            await controller.Motor.TurnMotorAtPowerForTimeAsync(OutputPort.A, 100, 1000, false);
-            await controller.Motor.TurnMotorAtPowerForTimeAsync(OutputPort.D, 100, 1000, false);
+            /*await controller.Motor.TurnMotorAtPowerForTimeAsync(OutputPort.A, 100, 1000, false);
+            await controller.Motor.TurnMotorAtPowerForTimeAsync(OutputPort.D, 100, 1000, false);*/
         }
     }
 }
