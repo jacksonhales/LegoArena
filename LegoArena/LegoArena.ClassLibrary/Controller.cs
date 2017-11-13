@@ -13,7 +13,7 @@ using System.Diagnostics;
 
 namespace LegoArena.ClassLibrary
 {       
-    // JACKSONS CODE
+    // everyones code yeah
 
     public class Controller
     {
@@ -93,28 +93,34 @@ namespace LegoArena.ClassLibrary
             
         }
         
-        public async Task FindWall()
+        public async Task<double> FindWall()
         {
-            while (UltrasonicSensor.sensorValue <= 5)
+            List<int> wallValues = new List<int>();
+            await Task.Delay(100);
+
+            while (UltrasonicSensor.sensorValue >= 5)
             {
                 await DriveStraight();
+                if (ColourSensor.sensorValue != 0)
+                {
+                    wallValues.Add((int)ColourSensor.sensorValue);
+                }
             }
+            return wallValues.Average();
         }
         public async Task TurnLeft90Degree()
         {
             await Task.Delay(100);
             float originalGyroValue = GyroSensor.sensorValue;
-            //var value = await TeamBrick.Brick.DirectCommand.ReadySIAsync(InputPort.One, 0);
 
             while (GyroSensor.sensorValue >= originalGyroValue - 90)
             {
                 
-                TeamBrick.Brick.BatchCommand.TurnMotorAtPowerForTime(OutputPort.A, -25, 10, false);
-                TeamBrick.Brick.BatchCommand.TurnMotorAtPowerForTime(OutputPort.D, 25, 10, false);
+                TeamBrick.Brick.BatchCommand.TurnMotorAtPowerForTime(OutputPort.A, -27, 10, false);
+                TeamBrick.Brick.BatchCommand.TurnMotorAtPowerForTime(OutputPort.D, 27, 10, false);
                 await TeamBrick.Brick.BatchCommand.SendCommandAsync();
                 await Task.Delay(10);
             }
-            //await Task.Delay(100);
         }
 
         public async Task TurnRight90Degree()
@@ -126,12 +132,11 @@ namespace LegoArena.ClassLibrary
 
             while (value <= originalGyroValue + 90)
             {
-                TeamBrick.Brick.BatchCommand.TurnMotorAtPowerForTime(OutputPort.A, 25, 10, false);
-                TeamBrick.Brick.BatchCommand.TurnMotorAtPowerForTime(OutputPort.D, -25, 10, false);
+                TeamBrick.Brick.BatchCommand.TurnMotorAtPowerForTime(OutputPort.A, 27, 10, false);
+                TeamBrick.Brick.BatchCommand.TurnMotorAtPowerForTime(OutputPort.D, -27, 10, false);
                 await TeamBrick.Brick.BatchCommand.SendCommandAsync();
                 await Task.Delay(10);
             }
-            //await Task.Delay(100);
         }
 
         public async Task TurnAround()
@@ -141,16 +146,15 @@ namespace LegoArena.ClassLibrary
 
             while (GyroSensor.sensorValue >= originalGyroValue - 180)
             {
-                TeamBrick.Brick.BatchCommand.TurnMotorAtPowerForTime(OutputPort.A, -25, 10, false);
-                TeamBrick.Brick.BatchCommand.TurnMotorAtPowerForTime(OutputPort.D, 25, 10, false);
+                TeamBrick.Brick.BatchCommand.TurnMotorAtPowerForTime(OutputPort.A, -27, 10, false);
+                TeamBrick.Brick.BatchCommand.TurnMotorAtPowerForTime(OutputPort.D, 27, 10, false);
                 await TeamBrick.Brick.BatchCommand.SendCommandAsync();
                 await Task.Delay(10);
             }
         }
         public async Task DriveStraight()
         {
-            TeamBrick.Brick.BatchCommand.TurnMotorAtPowerForTime(OutputPort.A, 25, 10, false);
-            TeamBrick.Brick.BatchCommand.TurnMotorAtPowerForTime(OutputPort.D, 25, 10, false);
+            TeamBrick.Brick.BatchCommand.TurnMotorAtPowerForTime(OutputPort.A | OutputPort.D, 27, 10, false);
             await TeamBrick.Brick.BatchCommand.SendCommandAsync();
             await Task.Delay(10);
         }
@@ -161,8 +165,8 @@ namespace LegoArena.ClassLibrary
 
             while (GyroSensor.sensorValue <= originalGyroValue - degreeToTurn)
             {
-                TeamBrick.Brick.BatchCommand.TurnMotorAtPowerForTime(OutputPort.A, -25, 10, false);
-                TeamBrick.Brick.BatchCommand.TurnMotorAtPowerForTime(OutputPort.D, 25, 10, false);
+                TeamBrick.Brick.BatchCommand.TurnMotorAtPowerForTime(OutputPort.A, -27, 10, false);
+                TeamBrick.Brick.BatchCommand.TurnMotorAtPowerForTime(OutputPort.D, 27, 10, false);
                 await TeamBrick.Brick.BatchCommand.SendCommandAsync();
                 await Task.Delay(10);
             }
@@ -174,8 +178,8 @@ namespace LegoArena.ClassLibrary
 
             while (GyroSensor.sensorValue <= originalGyroValue - degreeToTurn)
             {
-                TeamBrick.Brick.BatchCommand.TurnMotorAtPowerForTime(OutputPort.A, 25, 10, false);
-                TeamBrick.Brick.BatchCommand.TurnMotorAtPowerForTime(OutputPort.D, -25, 10, false);
+                TeamBrick.Brick.BatchCommand.TurnMotorAtPowerForTime(OutputPort.A, 27, 10, false);
+                TeamBrick.Brick.BatchCommand.TurnMotorAtPowerForTime(OutputPort.D, -27, 10, false);
                 await TeamBrick.Brick.BatchCommand.SendCommandAsync();
                 await Task.Delay(10);
             }

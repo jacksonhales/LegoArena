@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:LegoArena.MainWindow"
         mc:Ignorable="d"
-        Title="MainWindow" Height="350" Width="525" >
+        Title="Lego Arena" Height="350" Width="525" >
     <Grid>
         <Grid.Background>
             <ImageBrush ImageSource="Resources/Background.jpg"/>
@@ -35,10 +35,10 @@
             </Grid.RowDefinitions>
                 <TextBlock x:Name="TextGyro" FontWeight="Bold" Foreground="BlanchedAlmond">Gyro Sensor:</TextBlock>
                 <TextBlock x:Name="TextUltra" Grid.Row="1" FontWeight="Bold" Foreground="BlanchedAlmond">UltraSonic  Sensor: </TextBlock>
-            <TextBlock x:Name="TextColor" Grid.Row="2" FontWeight="Bold" Foreground="BlanchedAlmond">Colour Sensor: </TextBlock>
-            <Label x:Name="GyroValue" Grid.Column="1" FontWeight="Bold" Foreground="BlanchedAlmond"></Label>
-            <Label x:Name="UltraSonicValue" Grid.Column="1" Grid.Row="1" FontWeight="Bold" Foreground="BlanchedAlmond"></Label>
-            <Label x:Name="ColourValue" Grid.Column="1" Grid.Row="2" FontWeight="Bold" Foreground="BlanchedAlmond"></Label>
+                <TextBlock x:Name="TextColor" Grid.Row="2" FontWeight="Bold" Foreground="BlanchedAlmond">Colour Sensor: </TextBlock>
+                <Label x:Name="GyroValue" Grid.Column="1" FontWeight="Bold" Foreground="BlanchedAlmond"></Label>
+                <Label x:Name="UltraSonicValue" Grid.Column="1" Grid.Row="1" FontWeight="Bold" Foreground="BlanchedAlmond"></Label>
+                <Label x:Name="ColourValue" Grid.Column="1" Grid.Row="2" FontWeight="Bold" Foreground="BlanchedAlmond"></Label>
         </Grid>
         </Border>
 
@@ -72,5 +72,7 @@
             </Button>
         </StackPanel>
         </Border>
+        <TextBlock x:Name="WallOne" Grid.Row="0">Wall 1:</TextBlock>
+        <Label x:Name="WallOneLabel" Grid.Row="0" VerticalAlignment="Top" HorizontalAlignment="Right"/>
     </Grid>
 </Window>
