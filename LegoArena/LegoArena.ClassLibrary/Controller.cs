@@ -95,7 +95,7 @@ namespace LegoArena.ClassLibrary
         
         public async Task FindWall()
         {
-            while (UltrasonicSensor.sensorValue <= 10)
+            while (UltrasonicSensor.sensorValue <= 5)
             {
                 await DriveStraight();
             }

@@ -39,6 +39,7 @@ namespace LegoArena.MainWindow
             Controller.TeamBrick.Brick.BrickChanged += SensorTest;
 
             await controller.FindWall();
+
         }
 
         public async void SensorTest(object sender, BrickChangedEventArgs e)
