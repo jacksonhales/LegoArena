@@ -104,11 +104,11 @@ namespace LegoArena.ClassLibrary
 
         public async Task TurnLeft()
         {
+            
             await Task.Delay(100);
             float originalGyroValue = GyroSensor.sensorValue;
-            //var value = await TeamBrick.Brick.DirectCommand.ReadySIAsync(InputPort.One, 0);
 
-            while (GyroSensor.sensorValue >= originalGyroValue - 90)
+            while (gyroSensor.sensorValue >= originalGyroValue - 90)
             {
                 
                 TeamBrick.Brick.BatchCommand.TurnMotorAtPowerForTime(OutputPort.A, -25, 10, false);
@@ -116,7 +116,6 @@ namespace LegoArena.ClassLibrary
                 await TeamBrick.Brick.BatchCommand.SendCommandAsync();
                 await Task.Delay(10);
             }
-            //await Task.Delay(100);
         }
 
         public async Task TurnRight()
@@ -124,16 +123,13 @@ namespace LegoArena.ClassLibrary
             await Task.Delay(100);
             float originalGyroValue = GyroSensor.sensorValue;
 
-            var value = await TeamBrick.Brick.DirectCommand.ReadySIAsync(InputPort.One, 0);
-
-            while (value <= originalGyroValue + 90)
+            while (gyroSensor.sensorValue <= originalGyroValue + 90)
             {
                 TeamBrick.Brick.BatchCommand.TurnMotorAtPowerForTime(OutputPort.A, 20, 2, false);
                 TeamBrick.Brick.BatchCommand.TurnMotorAtPowerForTime(OutputPort.D, -20, 2, false);
                 await TeamBrick.Brick.BatchCommand.SendCommandAsync();
-                await Task.Delay(1);
+                await Task.Delay(10);
             }
-            //await Task.Delay(100);
         }
 
         public async Task TurnAround()
@@ -141,7 +137,7 @@ namespace LegoArena.ClassLibrary
             await Task.Delay(100);
             float originalGyroValue = GyroSensor.sensorValue;
 
-            while (GyroSensor.sensorValue >= originalGyroValue - 180)
+            while (gyroSensor.sensorValue >= originalGyroValue - 180)
             {
                 TeamBrick.Brick.BatchCommand.TurnMotorAtPowerForTime(OutputPort.A, -20, 2, false);
                 TeamBrick.Brick.BatchCommand.TurnMotorAtPowerForTime(OutputPort.D, 20, 2, false);

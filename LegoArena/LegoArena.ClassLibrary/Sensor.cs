@@ -23,12 +23,13 @@ namespace LegoArena.ClassLibrary
 
         public async void Brick_BrickChanged(object sender, BrickChangedEventArgs e)
         {
-            this.sensorValue = e.Ports[sensorPort].SIValue;
+            //sensorValue = await Controller.TeamBrick.Brick.DirectCommand.ReadySIAsync(sensorPort, 0);
+            sensorValue = e.Ports[sensorPort].SIValue;
         }
 
         public float GetValue()
         {
-            return this.sensorValue;
+            return sensorValue;
         }
     }
 }

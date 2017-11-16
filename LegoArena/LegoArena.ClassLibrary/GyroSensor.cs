@@ -14,7 +14,7 @@ namespace LegoArena.ClassLibrary
     {
         public GyroSensor()
         {
-            this.sensorPort = InputPort.One;
+            sensorPort = InputPort.One;
         }
     }
 }
