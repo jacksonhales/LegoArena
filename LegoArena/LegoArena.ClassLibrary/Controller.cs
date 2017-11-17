@@ -13,7 +13,7 @@ using System.Diagnostics;
 
 namespace LegoArena.ClassLibrary
 {       
-    // everyones code yeah
+    // Everyones code
 
     public class Controller
     {
@@ -124,6 +124,7 @@ namespace LegoArena.ClassLibrary
             }
             return wallValues.Average();
         }
+
         public async Task TurnLeft90Degree()
         {
             
