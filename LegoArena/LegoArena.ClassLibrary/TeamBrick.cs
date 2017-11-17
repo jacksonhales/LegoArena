@@ -13,7 +13,7 @@ namespace LegoArena.ClassLibrary
 {
     public class TeamBrick
     {
-        private Brick brick = new Brick(new BluetoothCommunication("COM5"));
+        private Brick brick = new Brick(new UsbCommunication());
         //private Brick brick = new Brick(new UsbCommunication());
 
         public Brick Brick

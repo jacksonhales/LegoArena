@@ -35,12 +35,46 @@ namespace LegoArena.MainWindow
         {
             controller = new Controller();
             await Controller.TeamBrick.ConnectASync();
-            
+
             Controller.TeamBrick.Brick.BrickChanged += SensorTest;
 
-            double value = await controller.FindWall();
-        }
+            double value1 = await controller.FindWall();
+            await controller.TurnLeft90Degree();
+            if (controller.ColourSensor.sensorValue == 0)
+            {
+                await controller.TurnRightAtDegree(180);
+                double value2 = await controller.FindWall();
+            }
+            else
+            {
+                double value2 = await controller.FindWall();
 
+                await controller.TurnLeft90Degree();
+
+                if (controller.ColourSensor.sensorValue == 0)
+                {
+                    await controller.TurnRightAtDegree(180);
+                    await controller.DriveStraight();
+                }
+                else
+                {
+                    double value3 = await controller.FindWall();
+
+                    await controller.TurnLeft90Degree();
+
+                    if (controller.ColourSensor.sensorValue == 0)
+                    {
+                        await controller.TurnRightAtDegree(180);
+                        double value4 = await controller.FindWall();
+                    }
+                    else
+                    {
+                        double value4 = await controller.FindWall();
+                    }
+                }
+
+            }
+        }
         public async void SensorTest(object sender, BrickChangedEventArgs e)
         {
             GyroValue.Content = controller.GyroSensor.GetValue();
