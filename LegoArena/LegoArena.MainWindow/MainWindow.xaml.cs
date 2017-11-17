@@ -38,8 +38,48 @@ namespace LegoArena.MainWindow
             
             Controller.TeamBrick.Brick.BrickChanged += SensorTest;
 
-            double value = await controller.FindWall();
+            double findcorner = 1;
+            double value1 = await controller.FindWall();
+            await controller.TurnLeft90Degree();
+            double value2 = await controller.FindWall();
 
+            if (findcorner == 1)
+            {
+                if (value1 == 4 && value2 == 2)
+                {
+                    await controller.TurnRightAtDegree(135);
+                    await controller.FindWall();
+                }
+                else if (value1 == 2 && value2 == 4)
+                {
+                    await controller.TurnLeftAtDegree(135);
+                }
+
+                else if (value1 == 5 && value2 == 2)
+                {
+                    await controller.TurnLeftAtDegree(180);
+                    await controller.FindWall();
+                }
+                else if (value1 == 2 && value2 == 5)
+                {
+                    await controller.TurnRightAtDegree(90);
+                    await controller.FindWall();
+                }
+                else if (value1 == 4 && value2 == 1)
+                {
+                    await controller.TurnLeftAtDegree(90);
+                    await controller.FindWall();
+                }
+                else if (value1 == 5 && value2 == 1)
+                {
+                   
+                }
+                else if (value1 == 1 && value2 == 5)
+                {
+
+                }
+            }
+            
         }
 
         public async void SensorTest(object sender, BrickChangedEventArgs e)
@@ -54,7 +94,7 @@ namespace LegoArena.MainWindow
             double colourValue = await controller.FindWall();
 
             // if yellow
-            if (colourValue == 4)
+            if (colourValue == 4) 
             {
                 await controller.TurnRight90Degree();
                 colourValue = await controller.FindWall();
