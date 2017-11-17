@@ -58,7 +58,7 @@
             </Grid.ColumnDefinitions>
             <StackPanel Grid.Column="0">
 
-                <Button x:Name="FindBlueRed" VerticalAlignment="Top" Width="95" Margin="7" Foreground="BlanchedAlmond">Find Blue/Red
+                <Button x:Name="FindBlueRed" VerticalAlignment="Top" Width="95" Margin="7" Foreground="BlanchedAlmond" Click="FindBlueRed_Click">Find Blue/Red
                     <Button.Background>
                         <ImageBrush ImageSource="Resources/ButtonBackground.jpg"/>
                     </Button.Background>
@@ -93,8 +93,6 @@
                 </Button>
             </StackPanel>
         </Grid>
-        <Border Grid.Column="1" Grid.Row="2" BorderBrush="BlanchedAlmond" BorderThickness="3">
-
-        </Border>
+        
     </Grid>
 </Window>

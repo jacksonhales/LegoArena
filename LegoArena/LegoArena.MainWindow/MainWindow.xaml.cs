@@ -49,5 +49,52 @@ namespace LegoArena.MainWindow
             ColourValue.Content = controller.ColourSensor.GetValue();
         }
 
+        private async void FindBlueRed_Click(object sender, RoutedEventArgs e)
+        {
+            double colourValue = await controller.FindWall();
+
+            // if yellow
+            if (colourValue == 4)
+            {
+                await controller.TurnRight90Degree();
+                colourValue = await controller.FindWall();
+                // if blue, which it should be
+                if (colourValue == 2)
+                {
+                    await controller.TurnRight90Degree();
+                    colourValue = await controller.FindWall();
+                    // if red, which it should be
+                    if (colourValue == 5)
+                    {
+                        //stop cause ur in the red/blue corner
+                        Application.Current.Shutdown();
+                    }
+                }
+            }
+
+            // if red
+            if (colourValue == 5)
+            {
+                await controller.TurnRight90Degree();
+                colourValue = await controller.FindWall();
+                // if blue, which it should be
+                if (colourValue == 2)
+                {
+                    await controller.TurnRight90Degree();
+                    colourValue = await controller.FindWall();
+                    // if red, which it should be
+                    if (colourValue == 5)
+                    {
+                        //stop cause ur in the red/blue corner
+                        Application.Current.Shutdown();
+                    }
+                }
+            }
+
+
+            // if blue
+
+            // if black
+        }
     }
 }
