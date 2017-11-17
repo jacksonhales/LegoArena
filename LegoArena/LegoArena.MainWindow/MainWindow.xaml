@@ -51,26 +51,50 @@
          
         </Grid>
         </Border>
+        <Grid Grid.Column="1" Grid.Row="2">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition />
+                <ColumnDefinition />
+            </Grid.ColumnDefinitions>
+            <StackPanel Grid.Column="0">
 
-        <Border Grid.Column="1" Grid.Row="2" BorderBrush="BlanchedAlmond" BorderThickness="3">
-            <StackPanel Grid.Column="1" Grid.Row="2" VerticalAlignment="Center">
-
-                <Button x:Name="FindHome" Grid.Column="1" Grid.Row="2" VerticalAlignment="Top" Width="85" Margin="7" Foreground="BlanchedAlmond">Find Home
+                <Button x:Name="FindBlueRed" VerticalAlignment="Top" Width="95" Margin="7" Foreground="BlanchedAlmond">Find Blue/Red
                     <Button.Background>
                         <ImageBrush ImageSource="Resources/ButtonBackground.jpg"/>
                     </Button.Background>
                 </Button>
-                <Button x:Name="FindSequence" Grid.Column="1" Grid.Row="2" VerticalAlignment="Center" Width="85" Margin="7" Foreground="BlanchedAlmond">Find Sequence
+                <Button x:Name="FindBlueYellow" VerticalAlignment="Center" Width="95" Margin="7" Foreground="BlanchedAlmond">Find Blue/Yellow
                     <Button.Background>
                         <ImageBrush ImageSource="Resources/ButtonBackground.jpg"/>
                     </Button.Background>
                 </Button>
-                <Button x:Name="FindBlock" Grid.Column="1" Grid.Row="2" VerticalAlignment="Bottom" Width="85" Margin="7" Foreground="BlanchedAlmond">Find Block
+                <Button x:Name="FindBlackRed" VerticalAlignment="Bottom" Width="95" Margin="7" Foreground="BlanchedAlmond">Find Black/Red
                     <Button.Background>
                         <ImageBrush ImageSource="Resources/ButtonBackground.jpg"/>
                     </Button.Background>
                 </Button>
             </StackPanel>
+            <StackPanel Grid.Column="1" >
+
+                <Button x:Name="FindBlackYellow" VerticalAlignment="Top" Width="95" Margin="7" Foreground="BlanchedAlmond">Find Black/Yellow
+                    <Button.Background>
+                        <ImageBrush ImageSource="Resources/ButtonBackground.jpg"/>
+                    </Button.Background>
+                </Button>
+                <Button x:Name="FindSequence" VerticalAlignment="Center" Width="95" Margin="7" Foreground="BlanchedAlmond">Find Sequence
+                    <Button.Background>
+                        <ImageBrush ImageSource="Resources/ButtonBackground.jpg"/>
+                    </Button.Background>
+                </Button>
+                <Button x:Name="FindBlock" VerticalAlignment="Bottom" Width="95" Margin="7" Foreground="BlanchedAlmond">Find Block
+                    <Button.Background>
+                        <ImageBrush ImageSource="Resources/ButtonBackground.jpg"/>
+                    </Button.Background>
+                </Button>
+            </StackPanel>
+        </Grid>
+        <Border Grid.Column="1" Grid.Row="2" BorderBrush="BlanchedAlmond" BorderThickness="3">
+
         </Border>
     </Grid>
 </Window>
