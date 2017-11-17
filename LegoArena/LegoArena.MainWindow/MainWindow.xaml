@@ -44,35 +44,33 @@
 
         <Border Grid.Column="1" BorderBrush="BlanchedAlmond" BorderThickness="3">
         <Grid Grid.Column="1">
-            <Grid.Background>
-                <ImageBrush ImageSource="Resources/YellowBackground.jpg"/>
-            </Grid.Background>
-            <TextBlock x:Name="Title" Grid.Column="1" VerticalAlignment="Top" HorizontalAlignment="Center" FontWeight="Bold" FontSize="40" Foreground="BlanchedAlmond">LEGO ARENA</TextBlock>
+                <Grid.Background>
+                    <ImageBrush ImageSource="Resources/YellowBackground.jpg"/>
+                </Grid.Background>
+                <TextBlock x:Name="Title" Grid.Column="1" VerticalAlignment="Top" HorizontalAlignment="Center" FontWeight="Bold" FontSize="40" Foreground="BlanchedAlmond">LEGO ARENA</TextBlock>
          
         </Grid>
         </Border>
 
         <Border Grid.Column="1" Grid.Row="2" BorderBrush="BlanchedAlmond" BorderThickness="3">
-        <StackPanel Grid.Column="1" Grid.Row="2" VerticalAlignment="Center">
-            
-            <Button x:Name="FindHome" Grid.Column="1" Grid.Row="2" VerticalAlignment="Top" Width="85" Margin="7" Foreground="BlanchedAlmond">Find Home
-                <Button.Background>
-                    <ImageBrush ImageSource="Resources/ButtonBackground.jpg"/>
-                </Button.Background>
-            </Button>
-            <Button x:Name="FindSequence" Grid.Column="1" Grid.Row="2" VerticalAlignment="Center" Width="85" Margin="7" Foreground="BlanchedAlmond">Find Sequence
-                <Button.Background>
-                    <ImageBrush ImageSource="Resources/ButtonBackground.jpg"/>
-                </Button.Background>
-            </Button>
-            <Button x:Name="FindBlock" Grid.Column="1" Grid.Row="2" VerticalAlignment="Bottom" Width="85" Margin="7" Foreground="BlanchedAlmond">Find Block
-                <Button.Background>
-                    <ImageBrush ImageSource="Resources/ButtonBackground.jpg"/>
-                </Button.Background>
-            </Button>
-        </StackPanel>
+            <StackPanel Grid.Column="1" Grid.Row="2" VerticalAlignment="Center">
+
+                <Button x:Name="FindHome" Grid.Column="1" Grid.Row="2" VerticalAlignment="Top" Width="85" Margin="7" Foreground="BlanchedAlmond">Find Home
+                    <Button.Background>
+                        <ImageBrush ImageSource="Resources/ButtonBackground.jpg"/>
+                    </Button.Background>
+                </Button>
+                <Button x:Name="FindSequence" Grid.Column="1" Grid.Row="2" VerticalAlignment="Center" Width="85" Margin="7" Foreground="BlanchedAlmond">Find Sequence
+                    <Button.Background>
+                        <ImageBrush ImageSource="Resources/ButtonBackground.jpg"/>
+                    </Button.Background>
+                </Button>
+                <Button x:Name="FindBlock" Grid.Column="1" Grid.Row="2" VerticalAlignment="Bottom" Width="85" Margin="7" Foreground="BlanchedAlmond">Find Block
+                    <Button.Background>
+                        <ImageBrush ImageSource="Resources/ButtonBackground.jpg"/>
+                    </Button.Background>
+                </Button>
+            </StackPanel>
         </Border>
-        <TextBlock x:Name="WallOne" Grid.Row="0">Wall 1:</TextBlock>
-        <Label x:Name="WallOneLabel" Grid.Row="0" VerticalAlignment="Top" HorizontalAlignment="Right"/>
     </Grid>
 </Window>

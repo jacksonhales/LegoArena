@@ -39,6 +39,7 @@ namespace LegoArena.MainWindow
             Controller.TeamBrick.Brick.BrickChanged += SensorTest;
 
             double value = await controller.FindWall();
+
         }
 
         public async void SensorTest(object sender, BrickChangedEventArgs e)
@@ -47,5 +48,6 @@ namespace LegoArena.MainWindow
             UltraSonicValue.Content = controller.UltrasonicSensor.GetValue();
             ColourValue.Content = controller.ColourSensor.GetValue();
         }
+
     }
 }
