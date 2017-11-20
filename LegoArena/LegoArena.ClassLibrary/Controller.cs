@@ -96,43 +96,34 @@ namespace LegoArena.ClassLibrary
         public async Task<double> FindWall()
         {
             await Task.Delay(100);
-            float originalGyroValue = GyroSensor.sensorValue;
-            List<int> wallValues = new List<int>();
-            int count = 0;
-            while (count < 10)
+            float originalGyroValue = GyroSensor.GetValue();
+            while (UltrasonicSensor.GetValue() <= 6) 
             {
-                if (GyroSensor.sensorValue < originalGyroValue - 7)
+                if (GyroSensor.GetValue() < originalGyroValue - 7) //check if vehicle has turned more than 7 degrees off of original orientation
                 {
-                    await TurnRightAtDegree(originalGyroValue - GyroSensor.sensorValue);
+                    await TurnRightAtDegree(originalGyroValue - GyroSensor.GetValue()); //turn right to center back to original orientation
                     await DriveStraight();
                 }
-                if (GyroSensor.sensorValue > originalGyroValue + 7)
+                if (GyroSensor.GetValue() > originalGyroValue + 7) //check if vehicle has turned more than 7 degrees off of original orientation
                 {
-                    await TurnLeftAtDegree(GyroSensor.sensorValue - originalGyroValue);
+                    await TurnLeftAtDegree(GyroSensor.GetValue() - originalGyroValue); // turn left to center back to original orientation
                     await DriveStraight();
                 }
                 else
                 {
                     await DriveStraight();
-                    if (ColourSensor.sensorValue != 0)
-                    {
-                        wallValues.Add((int)ColourSensor.sensorValue);
-                        count++;
-                    }
-
                 }
-
             }
-            return Math.Round(wallValues.Average(), 1);
+            return ColourSensor.GetValue();
         }
 
         public async Task TurnLeft90Degree()
         {
             
             await Task.Delay(100);
-            float originalGyroValue = GyroSensor.sensorValue;
+            float originalGyroValue = GyroSensor.GetValue();
 
-            while (gyroSensor.sensorValue >= originalGyroValue - 90)
+            while (gyroSensor.GetValue() >= originalGyroValue - 90)
             {
                 
                 TeamBrick.Brick.BatchCommand.TurnMotorAtPowerForTime(OutputPort.A, -27, 10, false);
@@ -145,9 +136,9 @@ namespace LegoArena.ClassLibrary
         public async Task TurnRight90Degree()
         {
             await Task.Delay(100);
-            float originalGyroValue = GyroSensor.sensorValue;
+            float originalGyroValue = GyroSensor.GetValue();
 
-            while (gyroSensor.sensorValue <= originalGyroValue + 90)
+            while (gyroSensor.GetValue() <= originalGyroValue + 90)
             {
                 TeamBrick.Brick.BatchCommand.TurnMotorAtPowerForTime(OutputPort.A, 27, 10, false);
                 TeamBrick.Brick.BatchCommand.TurnMotorAtPowerForTime(OutputPort.D, -27, 10, false);
@@ -159,9 +150,9 @@ namespace LegoArena.ClassLibrary
         public async Task TurnAround()
         {
             await Task.Delay(100);
-            float originalGyroValue = GyroSensor.sensorValue;
+            float originalGyroValue = GyroSensor.GetValue();
 
-            while (gyroSensor.sensorValue >= originalGyroValue - 180)
+            while (gyroSensor.GetValue() >= originalGyroValue - 180)
             {
                 TeamBrick.Brick.BatchCommand.TurnMotorAtPowerForTime(OutputPort.A, -27, 10, false);
                 TeamBrick.Brick.BatchCommand.TurnMotorAtPowerForTime(OutputPort.D, 27, 10, false);
@@ -178,9 +169,9 @@ namespace LegoArena.ClassLibrary
         public async Task TurnLeftAtDegree(float degreeToTurn)
         {
             await Task.Delay(100);
-            float originalGyroValue = GyroSensor.sensorValue;
+            float originalGyroValue = GyroSensor.GetValue();
 
-            while (GyroSensor.sensorValue >= originalGyroValue - degreeToTurn)
+            while (GyroSensor.GetValue() >= originalGyroValue - degreeToTurn)
             {
                 TeamBrick.Brick.BatchCommand.TurnMotorAtPowerForTime(OutputPort.A, -37, 10, false);
                 TeamBrick.Brick.BatchCommand.TurnMotorAtPowerForTime(OutputPort.D, 37, 10, false);
@@ -191,9 +182,9 @@ namespace LegoArena.ClassLibrary
         public async Task TurnRightAtDegree(float degreeToTurn)
         {
             await Task.Delay(100);
-            float originalGyroValue = GyroSensor.sensorValue;
+            float originalGyroValue = GyroSensor.GetValue();
 
-            while (GyroSensor.sensorValue <= originalGyroValue + degreeToTurn)
+            while (GyroSensor.GetValue() <= originalGyroValue + degreeToTurn)
             {
                 TeamBrick.Brick.BatchCommand.TurnMotorAtPowerForTime(OutputPort.A, 37, 10, false);
                 TeamBrick.Brick.BatchCommand.TurnMotorAtPowerForTime(OutputPort.D, -37, 10, false);
