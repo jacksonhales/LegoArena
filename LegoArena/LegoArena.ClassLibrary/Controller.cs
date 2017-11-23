@@ -97,7 +97,7 @@ namespace LegoArena.ClassLibrary
         {
             await Task.Delay(100);
             float originalGyroValue = GyroSensor.GetValue();
-            while (UltrasonicSensor.GetValue() <= 6) 
+            while (UltrasonicSensor.GetValue() >= 5) 
             {
                 if (GyroSensor.GetValue() < originalGyroValue - 7) //check if vehicle has turned more than 7 degrees off of original orientation
                 {
@@ -111,6 +111,7 @@ namespace LegoArena.ClassLibrary
                 }
                 else
                 {
+
                     await DriveStraight();
                 }
             }

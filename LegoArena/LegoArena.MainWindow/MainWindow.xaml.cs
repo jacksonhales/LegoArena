@@ -38,9 +38,10 @@ namespace LegoArena.MainWindow
             
             Controller.TeamBrick.Brick.BrickChanged += SensorTest;
 
-            double findcorner = 1;
+            /*
+             double findcorner = 1;
             double value1 = await controller.FindWall();
-            await controller.TurnLeft90Degree();
+            //await controller.TurnLeft90Degree();
             double value2 = await controller.FindWall();
 
             if (findcorner == 1)
@@ -78,7 +79,7 @@ namespace LegoArena.MainWindow
                 {
 
                 }
-            }
+            }*/
             
         }
 
