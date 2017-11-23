@@ -27,7 +27,7 @@ namespace LegoArena.MainWindow
         public MainWindow()
         {
             InitializeComponent();
-
+            /*
             Rectangle rectangle = new Rectangle()
             {
                 Width = 120,
@@ -37,12 +37,12 @@ namespace LegoArena.MainWindow
                 StrokeThickness = 2,
                 
             };
+            */
+            //cvsArena.Children.Add(rectangle);
+            //Canvas.SetTop(rectangle, 20);
+            //Canvas.SetLeft(rectangle, 20);
 
-            cvsArena.Children.Add(rectangle);
-            Canvas.SetTop(rectangle, 20);
-            Canvas.SetLeft(rectangle, 20);
-
-            //Loaded += MainWindow_Loaded;
+            Loaded += MainWindow_Loaded;
         }
 
         private async void MainWindow_Loaded(object sender, RoutedEventArgs e)
