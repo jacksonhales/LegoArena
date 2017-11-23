@@ -148,6 +148,36 @@ namespace LegoArena.ClassLibrary
             }
         }
 
+        public async Task TurnLeft45Degree()
+        {
+
+            await Task.Delay(100);
+            float originalGyroValue = GyroSensor.GetValue();
+
+            while (gyroSensor.GetValue() >= originalGyroValue - 45)
+            {
+
+                TeamBrick.Brick.BatchCommand.TurnMotorAtPowerForTime(OutputPort.A, -27, 10, false);
+                TeamBrick.Brick.BatchCommand.TurnMotorAtPowerForTime(OutputPort.D, 27, 10, false);
+                await TeamBrick.Brick.BatchCommand.SendCommandAsync();
+                await Task.Delay(10);
+            }
+        }
+
+        public async Task TurnRight45Degree()
+        {
+            await Task.Delay(100);
+            float originalGyroValue = GyroSensor.GetValue();
+
+            while (gyroSensor.GetValue() <= originalGyroValue + 45)
+            {
+                TeamBrick.Brick.BatchCommand.TurnMotorAtPowerForTime(OutputPort.A, 27, 10, false);
+                TeamBrick.Brick.BatchCommand.TurnMotorAtPowerForTime(OutputPort.D, -27, 10, false);
+                await TeamBrick.Brick.BatchCommand.SendCommandAsync();
+                await Task.Delay(10);
+            }
+        }
+
         public async Task TurnAround()
         {
             await Task.Delay(100);
