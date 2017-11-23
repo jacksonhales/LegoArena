@@ -22,6 +22,8 @@
             <RowDefinition Height="0.2*"/>
         </Grid.RowDefinitions>
 
+        <Canvas x:Name="cvsArena" Grid.Column="0" Grid.Row="1"></Canvas>
+        
         <Border Grid.Column="1" Grid.Row="1" BorderBrush="BlanchedAlmond" BorderThickness="3">
         <Grid>
             <Grid.ColumnDefinitions>
@@ -63,12 +65,12 @@
                         <ImageBrush ImageSource="Resources/ButtonBackground.jpg"/>
                     </Button.Background>
                 </Button>
-                <Button x:Name="FindBlueYellow" VerticalAlignment="Center" Width="95" Margin="7" Foreground="BlanchedAlmond">Find Blue/Yellow
+                <Button x:Name="FindBlueYellow" VerticalAlignment="Center" Width="95" Margin="7" Foreground="BlanchedAlmond" Click="FindBlueYellow_Click">Find Blue/Yellow
                     <Button.Background>
                         <ImageBrush ImageSource="Resources/ButtonBackground.jpg"/>
                     </Button.Background>
                 </Button>
-                <Button x:Name="FindBlackRed" VerticalAlignment="Bottom" Width="95" Margin="7" Foreground="BlanchedAlmond">Find Black/Red
+                <Button x:Name="FindBlackRed" VerticalAlignment="Bottom" Width="95" Margin="7" Foreground="BlanchedAlmond" Click="FindBlackRed_Click">Find Black/Red
                     <Button.Background>
                         <ImageBrush ImageSource="Resources/ButtonBackground.jpg"/>
                     </Button.Background>
@@ -76,7 +78,7 @@
             </StackPanel>
             <StackPanel Grid.Column="1" >
 
-                <Button x:Name="FindBlackYellow" VerticalAlignment="Top" Width="95" Margin="7" Foreground="BlanchedAlmond">Find Black/Yellow
+                <Button x:Name="FindBlackYellow" VerticalAlignment="Top" Width="95" Margin="7" Foreground="BlanchedAlmond" Click="FindBlackYellow_Click">Find Black/Yellow
                     <Button.Background>
                         <ImageBrush ImageSource="Resources/ButtonBackground.jpg"/>
                     </Button.Background>
