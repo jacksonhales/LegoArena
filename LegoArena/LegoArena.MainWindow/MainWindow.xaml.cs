@@ -121,7 +121,7 @@ namespace LegoArena.MainWindow
                     // if red, which it should be
                     if (colourValue == 5)
                     {
-                        // stop cause ur in the red/blue corner
+                        // stop because you're in the red/blue corner
                         Application.Current.Shutdown();
                     }
                 }
@@ -135,7 +135,7 @@ namespace LegoArena.MainWindow
                 // if blue, which it should be
                 if (colourValue == 2)
                 {
-                    // stop cause ur in the red/blue corner
+                    // stop because you're in the red/blue corner
                     Application.Current.Shutdown();
                 }
             }
@@ -148,7 +148,7 @@ namespace LegoArena.MainWindow
                 // if red, which it should be
                 if (colourValue == 5)
                 {
-                    // stop cause ur in the red/blue corner
+                    // stop because you're in the red/blue corner
                     Application.Current.Shutdown();
                 }
             }
@@ -166,7 +166,7 @@ namespace LegoArena.MainWindow
                     // if blue, which it should be
                     if (colourValue == 2)
                     {
-                        // stop cause ur in the red/blue corner
+                        // stop because you're in the red/blue corner
                         Application.Current.Shutdown();
                     }
                 }
@@ -190,7 +190,7 @@ namespace LegoArena.MainWindow
                     // if yellow, which it should be
                     if (colourValue == 4)
                     {
-                        // stop cause ur in the blue/yellow corner
+                        // stop because you're in the blue/yellow corner
                         Application.Current.Shutdown();
                     }
                 }
@@ -204,7 +204,7 @@ namespace LegoArena.MainWindow
                 // if blue, which it should be
                 if (colourValue == 2)
                 {
-                    // stop cause ur in the blue/yellow corner
+                    // stop because you're in the blue/yellow corner
                     Application.Current.Shutdown();
                 }
             }
@@ -217,7 +217,7 @@ namespace LegoArena.MainWindow
                 // if yellow, which it should be
                 if (colourValue == 4)
                 {
-                    // stop cause ur in the blue/yellow corner
+                    // stop because you're in the blue/yellow corner
                     Application.Current.Shutdown();
                 }
             }
@@ -235,7 +235,7 @@ namespace LegoArena.MainWindow
                     // if blue, which it should be
                     if (colourValue == 2)
                     {
-                        // stop cause ur in the blue/yellow corner
+                        // stop because you're in the blue/yellow corner
                         Application.Current.Shutdown();
                     }
                 }
@@ -259,7 +259,7 @@ namespace LegoArena.MainWindow
                     // if red, which it should be
                     if (colourValue == 5)
                     {
-                        // stop cause ur in the black/red corner
+                        // stop because you're in the black/red corner
                         Application.Current.Shutdown();
                     }
                 }
@@ -273,7 +273,7 @@ namespace LegoArena.MainWindow
                 // if black, which it should be
                 if (colourValue == 1)
                 {
-                    // stop cause ur in the black/red corner
+                    // stop because you're in the black/red corner
                     Application.Current.Shutdown();
                 }
             }
@@ -286,7 +286,7 @@ namespace LegoArena.MainWindow
                 // if red, which it should be
                 if (colourValue == 5)
                 {
-                    // stop cause ur in the black/red corner
+                    // stop because you're in the black/red corner
                     Application.Current.Shutdown();
                 }
             }
@@ -304,7 +304,7 @@ namespace LegoArena.MainWindow
                     // if black, which it should be
                     if (colourValue == 1)
                     {
-                        // stop cause ur in the black/red corner
+                        // stop because you're in the black/red corner
                         Application.Current.Shutdown();
                     }
                 }
@@ -328,7 +328,7 @@ namespace LegoArena.MainWindow
                     // if yellow, which it should be
                     if (colourValue == 4)
                     {
-                        // stop cause ur in the black/yellow corner
+                        // stop because you're in the black/yellow corner
                         Application.Current.Shutdown();
                     }
                 }
@@ -342,7 +342,7 @@ namespace LegoArena.MainWindow
                 // if black, which it should be
                 if (colourValue == 1)
                 {
-                    // stop cause ur in the black/yellow corner
+                    // stop because you're in the black/yellow corner
                     Application.Current.Shutdown();
                 }
             }
@@ -355,7 +355,7 @@ namespace LegoArena.MainWindow
                 // if yellow, which it should be
                 if (colourValue == 4)
                 {
-                    // stop cause ur in the black/yellow corner
+                    // stop because you're in the black/yellow corner
                     Application.Current.Shutdown();
                 }
             }
@@ -373,7 +373,7 @@ namespace LegoArena.MainWindow
                     // if black, which it should be
                     if (colourValue == 1)
                     {
-                        // stop cause ur in the black/yellow corner
+                        // stop because you're in the black/yellow corner
                         Application.Current.Shutdown();
                     }
                 }
