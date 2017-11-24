@@ -93,17 +93,14 @@ namespace LegoArena.ClassLibrary
             
         }
         
-        public async Task<double> FindWall()
+        public async Task FindWall()
         {
             await Task.Delay(100);
-            int count = 0;
+            //int count = 0;
             //List<float> wallValues = new List<float>();
             float originalGyroValue = GyroSensor.GetValue();
-<<<<<<< HEAD
-            while (UltrasonicSensor.sensorValue >= 4) 
-=======
+            //while (UltrasonicSensor.sensorValue >= 4) 
             while (UltrasonicSensor.GetValue() >= 5) 
->>>>>>> c102f27d2ef30024b9ea6172365da5d704645efb
             {
                 if (GyroSensor.GetValue() < originalGyroValue - 7) //check if vehicle has turned more than 7 degrees off of original orientation
                 {
@@ -117,21 +114,20 @@ namespace LegoArena.ClassLibrary
                 }
                 else
                 {
-<<<<<<< HEAD
                  /*   if (colourSensor.sensorValue != 0)
                     {
                         wallValues.Add(colourSensor.GetValue());
                         count++;
                     }*/
-=======
-
->>>>>>> c102f27d2ef30024b9ea6172365da5d704645efb
                     await DriveStraight();
                     await Task.Delay(10);
                 }
                 
             }
-            return colourSensor.sensorValue;
+
+            //double colourValue;
+
+            //return colourValue = Convert.ToDouble(ScanWall());
         }
 
         public async Task<double> ScanWall()
@@ -164,8 +160,7 @@ namespace LegoArena.ClassLibrary
                 wallValues.Add(ColourSensor.sensorValue);
                 await Task.Delay(13);
             }
-            var return1 = Math.Round(wallValues.Average(),0);
-            return return1;
+            return Math.Round(wallValues.Average(),0);
         }
 
         public async Task TurnLeft90Degree()

@@ -12,6 +12,7 @@ namespace LegoArena.ClassLibrary
 
         private async Task sequence()
         {
+            /*
             int loop = 0;
             while (loop < 3)
             {
@@ -23,7 +24,7 @@ namespace LegoArena.ClassLibrary
                     int corner1 = 5;
                     int corner2 = 2;
                     int corner3 = 4;
-                    int corner4 = ;
+                    int corner4 = 3;
                 }
 
                 double colourValue = await controller.FindWall();
@@ -82,8 +83,9 @@ namespace LegoArena.ClassLibrary
                         }
                     }
                     found = 1;
+                    */
                 }
+                
             }
         }
-    }
-}
+  

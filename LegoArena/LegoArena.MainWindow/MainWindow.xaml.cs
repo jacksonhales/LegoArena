@@ -51,8 +51,6 @@ namespace LegoArena.MainWindow
             await Controller.TeamBrick.ConnectASync();
             
             Controller.TeamBrick.Brick.BrickChanged += SensorTest;
-<<<<<<< HEAD
-=======
 
             /*
              double findcorner = 1;
@@ -97,7 +95,6 @@ namespace LegoArena.MainWindow
                 }
             }*/
             
->>>>>>> c102f27d2ef30024b9ea6172365da5d704645efb
         }
 
         public async void SensorTest(object sender, BrickChangedEventArgs e)
@@ -109,28 +106,28 @@ namespace LegoArena.MainWindow
 
         private async void FindBlueRed_Click(object sender, RoutedEventArgs e)
         {
-            //double colourValue = await controller.FindWall();
-
-<<<<<<< HEAD
             await controller.FindWall();
 
-            var colourValue = controller.ScanWall();
+            //await controller.ScanWall();
+
+            //var colourValue
+
+            var colourValue = await controller.ScanWall();
             
-            // if yellow
-=======
             // if yellow first
->>>>>>> c102f27d2ef30024b9ea6172365da5d704645efb
-            if (colourValue == 4) 
+            if (colourValue > 9) 
             {
                 await controller.TurnRight90Degree();
-                colourValue = await controller.FindWall();
+                await controller.FindWall();
+                colourValue = await controller.ScanWall();
+
                 // if blue, which it should be
-                if (colourValue == 2)
+                if (colourValue == 2 || colourValue == 3)
                 {
                     await controller.TurnRight90Degree();
-                    colourValue = await controller.FindWall();
+                    await controller.FindWall();
                     // if red, which it should be
-                    if (colourValue == 5)
+                    if (colourValue > 3 && colourValue < 9)
                     {
                         // stop because you're in the red/blue corner
                         Application.Current.Shutdown();
@@ -139,12 +136,13 @@ namespace LegoArena.MainWindow
             }
 
             // if red first
-            else if (colourValue == 5)
+            else if (colourValue > 3 && colourValue < 9)
             {
                 await controller.TurnLeft90Degree();
-                colourValue = await controller.FindWall();
+                await controller.FindWall();
+                colourValue = await controller.ScanWall();
                 // if blue, which it should be
-                if (colourValue == 2)
+                if (colourValue == 2 || colourValue == 3)
                 {
                     // stop because you're in the red/blue corner
                     Application.Current.Shutdown();
@@ -152,12 +150,12 @@ namespace LegoArena.MainWindow
             }
 
             // if blue first
-            else if (colourValue == 2)
+            else if (colourValue == 2 || colourValue == 3)
             {
                 await controller.TurnRight90Degree();
-                colourValue = await controller.FindWall();
+                await controller.FindWall();
                 // if red, which it should be
-                if (colourValue == 5)
+                if (colourValue > 3 && colourValue < 9)
                 {
                     // stop because you're in the red/blue corner
                     Application.Current.Shutdown();
@@ -168,14 +166,15 @@ namespace LegoArena.MainWindow
             else
             {
                 await controller.TurnLeft90Degree();
-                colourValue = await controller.FindWall();
+                await controller.FindWall();
+
                 // if red, which it should be
-                if (colourValue == 5)
+                if (colourValue > 3 && colourValue < 9)
                 {
                     await controller.TurnLeft90Degree();
-                    colourValue = await controller.FindWall();
+                    await controller.FindWall();
                     // if blue, which it should be
-                    if (colourValue == 2)
+                    if (colourValue == 2 || colourValue == 3)
                     {
                         // stop because you're in the red/blue corner
                         Application.Current.Shutdown();
@@ -186,20 +185,24 @@ namespace LegoArena.MainWindow
 
         private async void FindBlueYellow_Click(object sender, RoutedEventArgs e)
         {
-            double colourValue = await controller.FindWall();
+            await controller.FindWall();
+
+            double colourValue = await controller.ScanWall();
 
             // if red first
-            if (colourValue == 5)
+            if (colourValue > 3 && colourValue < 9)
             {
                 await controller.TurnLeft90Degree();
-                colourValue = await controller.FindWall();
+                await controller.FindWall();
+                colourValue = await controller.ScanWall();
                 // if blue, which it should be
-                if (colourValue == 2)
+                if (colourValue == 2 || colourValue == 3)
                 {
                     await controller.TurnLeft90Degree();
-                    colourValue = await controller.FindWall();
+                    await controller.FindWall();
+                    colourValue = await controller.ScanWall();
                     // if yellow, which it should be
-                    if (colourValue == 4)
+                    if (colourValue > 9)
                     {
                         // stop because you're in the blue/yellow corner
                         Application.Current.Shutdown();
@@ -208,12 +211,13 @@ namespace LegoArena.MainWindow
             }
 
             // if yellow first
-            else if (colourValue == 4)
+            else if (colourValue > 9)
             {
                 await controller.TurnRight90Degree();
-                colourValue = await controller.FindWall();
+                await controller.FindWall();
+                colourValue = await controller.ScanWall();
                 // if blue, which it should be
-                if (colourValue == 2)
+                if (colourValue == 2 || colourValue == 3)
                 {
                     // stop because you're in the blue/yellow corner
                     Application.Current.Shutdown();
@@ -221,12 +225,13 @@ namespace LegoArena.MainWindow
             }
 
             // if blue first
-            else if (colourValue == 2)
+            else if (colourValue == 2 || colourValue == 3)
             {
                 await controller.TurnLeft90Degree();
-                colourValue = await controller.FindWall();
+                await controller.FindWall();
+                colourValue = await controller.ScanWall();
                 // if yellow, which it should be
-                if (colourValue == 4)
+                if (colourValue > 9)
                 {
                     // stop because you're in the blue/yellow corner
                     Application.Current.Shutdown();
@@ -237,14 +242,16 @@ namespace LegoArena.MainWindow
             else
             {
                 await controller.TurnRight90Degree();
-                colourValue = await controller.FindWall();
+                await controller.FindWall();
+                colourValue = await controller.ScanWall();
                 // if yellow, which it should be
-                if (colourValue == 4)
+                if (colourValue > 9)
                 {
                     await controller.TurnRight90Degree();
-                    colourValue = await controller.FindWall();
+                    await controller.FindWall();
+                    colourValue = await controller.ScanWall();
                     // if blue, which it should be
-                    if (colourValue == 2)
+                    if (colourValue == 2 || colourValue == 3)
                     {
                         // stop because you're in the blue/yellow corner
                         Application.Current.Shutdown();
@@ -255,42 +262,43 @@ namespace LegoArena.MainWindow
 
         private async void FindBlackRed_Click(object sender, RoutedEventArgs e)
         {
-            double colourValue = await controller.FindWall();
+            await controller.FindWall();
+
+            double colourValue = await controller.ScanWall();
 
             // if yellow first
-            if (colourValue == 4)
+            if (colourValue > 9)
             {
                 await controller.TurnLeft90Degree();
-                colourValue = await controller.FindWall();
+                await controller.FindWall();
+                colourValue = await controller.ScanWall();
                 // if black, which it should be
-                if (colourValue == 1)
+                if (colourValue == 0 || colourValue == 1)
                 {
                     await controller.TurnLeft90Degree();
-                    colourValue = await controller.FindWall();
+                    await controller.FindWall();
+                    colourValue = await controller.ScanWall();
                     // if red, which it should be
-                    if (colourValue == 5)
+                    if (colourValue > 3 && colourValue < 9)
                     {
                         // stop because you're in the black/red corner
                         Application.Current.Shutdown();
                     }
                 }
             }
-<<<<<<< HEAD
             // if blue
 
             // if black
-            */
-
-
-=======
+            
 
             // if red first
-            else if (colourValue == 5)
+            else if (colourValue > 3 && colourValue < 9)
             {
                 await controller.TurnRight90Degree();
-                colourValue = await controller.FindWall();
+                await controller.FindWall();
+                colourValue = await controller.ScanWall();
                 // if black, which it should be
-                if (colourValue == 1)
+                if (colourValue == 0 || colourValue == 1)
                 {
                     // stop because you're in the black/red corner
                     Application.Current.Shutdown();
@@ -298,12 +306,13 @@ namespace LegoArena.MainWindow
             }
 
             // if black first
-            else if (colourValue == 1)
+            else if (colourValue == 0 || colourValue == 1)
             {
                 await controller.TurnLeft90Degree();
-                colourValue = await controller.FindWall();
+                await controller.FindWall();
+                colourValue = await controller.ScanWall();
                 // if red, which it should be
-                if (colourValue == 5)
+                if (colourValue > 3 && colourValue < 9)
                 {
                     // stop because you're in the black/red corner
                     Application.Current.Shutdown();
@@ -314,14 +323,16 @@ namespace LegoArena.MainWindow
             else
             {
                 await controller.TurnRight90Degree();
-                colourValue = await controller.FindWall();
+                await controller.FindWall();
+                colourValue = await controller.ScanWall();
                 // if red, which it should be
-                if (colourValue == 5)
+                if (colourValue > 3 && colourValue < 9)
                 {
                     await controller.TurnRight90Degree();
-                    colourValue = await controller.FindWall();
+                    await controller.FindWall();
+                    colourValue = await controller.ScanWall();
                     // if black, which it should be
-                    if (colourValue == 1)
+                    if (colourValue == 0 || colourValue == 1)
                     {
                         // stop because you're in the black/red corner
                         Application.Current.Shutdown();
@@ -332,20 +343,24 @@ namespace LegoArena.MainWindow
 
         private async void FindBlackYellow_Click(object sender, RoutedEventArgs e)
         {
-            double colourValue = await controller.FindWall();
+            await controller.FindWall();
+
+            var colourValue = controller.ScanWall().Result;
 
             // if red first
-            if (colourValue == 5)
+            if (colourValue > 3 && colourValue < 9)
             {
                 await controller.TurnRight90Degree();
-                colourValue = await controller.FindWall();
+                await controller.FindWall();
+                colourValue = await controller.ScanWall();
                 // if black, which it should be
-                if (colourValue == 1)
+                if (colourValue == 0 || colourValue == 1)
                 {
                     await controller.TurnRight90Degree();
-                    colourValue = await controller.FindWall();
+                    await controller.FindWall();
+                    colourValue = await controller.ScanWall();
                     // if yellow, which it should be
-                    if (colourValue == 4)
+                    if (colourValue > 9)
                     {
                         // stop because you're in the black/yellow corner
                         Application.Current.Shutdown();
@@ -354,12 +369,13 @@ namespace LegoArena.MainWindow
             }
 
             // if yellow first
-            else if (colourValue == 4)
+            else if (colourValue > 9)
             {
                 await controller.TurnLeft90Degree();
-                colourValue = await controller.FindWall();
+                await controller.FindWall();
+                colourValue = await controller.ScanWall();
                 // if black, which it should be
-                if (colourValue == 1)
+                if (colourValue == 0 || colourValue == 1)
                 {
                     // stop because you're in the black/yellow corner
                     Application.Current.Shutdown();
@@ -367,12 +383,13 @@ namespace LegoArena.MainWindow
             }
 
             // if black first
-            else if (colourValue == 1)
+            else if (colourValue == 0 || colourValue == 1)
             {
                 await controller.TurnRight90Degree();
-                colourValue = await controller.FindWall();
+                await controller.FindWall();
+                colourValue = await controller.ScanWall();
                 // if yellow, which it should be
-                if (colourValue == 4)
+                if (colourValue > 9)
                 {
                     // stop because you're in the black/yellow corner
                     Application.Current.Shutdown();
@@ -383,21 +400,22 @@ namespace LegoArena.MainWindow
             else
             {
                 await controller.TurnLeft90Degree();
-                colourValue = await controller.FindWall();
+                await controller.FindWall();
+                colourValue = await controller.ScanWall();
                 // if yellow, which it should be
-                if (colourValue == 4)
+                if (colourValue > 9)
                 {
                     await controller.TurnRight90Degree();
-                    colourValue = await controller.FindWall();
+                    await controller.FindWall();
+                    colourValue = await controller.ScanWall();
                     // if black, which it should be
-                    if (colourValue == 1)
+                    if (colourValue == 0 || colourValue == 1)
                     {
                         // stop because you're in the black/yellow corner
                         Application.Current.Shutdown();
                     }
                 }
             }
->>>>>>> c102f27d2ef30024b9ea6172365da5d704645efb
         }
     }
 }
