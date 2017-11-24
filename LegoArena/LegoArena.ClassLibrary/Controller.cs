@@ -99,9 +99,7 @@ namespace LegoArena.ClassLibrary
             //int count = 0;
             //List<float> wallValues = new List<float>();
             float originalGyroValue = GyroSensor.GetValue();
-<<<<<<< HEAD
-            while (UltrasonicSensor.sensorValue >= 4) 
-=======
+            //while (UltrasonicSensor.sensorValue >= 4) 
             while (UltrasonicSensor.GetValue() >= 5) 
             {
                 if (GyroSensor.GetValue() < originalGyroValue - 7) //check if vehicle has turned more than 7 degrees off of original orientation
