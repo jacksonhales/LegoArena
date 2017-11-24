@@ -268,14 +268,9 @@ namespace LegoArena.MainWindow
                     }
                 }
             }
-<<<<<<< HEAD
             // if blue
 
             // if black
-            */
-
-
-=======
 
             // if red first
             else if (colourValue == 5)
@@ -390,7 +385,6 @@ namespace LegoArena.MainWindow
                     }
                 }
             }
->>>>>>> c102f27d2ef30024b9ea6172365da5d704645efb
         }
     }
 }
