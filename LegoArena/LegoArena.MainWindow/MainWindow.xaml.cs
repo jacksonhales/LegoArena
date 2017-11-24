@@ -37,49 +37,6 @@ namespace LegoArena.MainWindow
             await Controller.TeamBrick.ConnectASync();
             
             Controller.TeamBrick.Brick.BrickChanged += SensorTest;
-
-            double findcorner = 1;
-            double value1 = await controller.FindWall();
-            await controller.TurnLeft90Degree();
-            double value2 = await controller.FindWall();
-
-            if (findcorner == 1)
-            {
-                if (value1 == 4 && value2 == 2)
-                {
-                    await controller.TurnRightAtDegree(135);
-                    await controller.FindWall();
-                }
-                else if (value1 == 2 && value2 == 4)
-                {
-                    await controller.TurnLeftAtDegree(135);
-                }
-
-                else if (value1 == 5 && value2 == 2)
-                {
-                    await controller.TurnLeftAtDegree(180);
-                    await controller.FindWall();
-                }
-                else if (value1 == 2 && value2 == 5)
-                {
-                    await controller.TurnRightAtDegree(90);
-                    await controller.FindWall();
-                }
-                else if (value1 == 4 && value2 == 1)
-                {
-                    await controller.TurnLeftAtDegree(90);
-                    await controller.FindWall();
-                }
-                else if (value1 == 5 && value2 == 1)
-                {
-                   
-                }
-                else if (value1 == 1 && value2 == 5)
-                {
-
-                }
-            }
-            
         }
 
         public async void SensorTest(object sender, BrickChangedEventArgs e)
@@ -91,8 +48,12 @@ namespace LegoArena.MainWindow
 
         private async void FindBlueRed_Click(object sender, RoutedEventArgs e)
         {
-            double colourValue = await controller.FindWall();
+            //double colourValue = await controller.FindWall();
 
+            await controller.FindWall();
+
+            var colourValue = controller.ScanWall();
+            
             // if yellow
             if (colourValue == 4) 
             {
@@ -130,11 +91,12 @@ namespace LegoArena.MainWindow
                     }
                 }
             }
-
-
             // if blue
 
             // if black
+            */
+
+
         }
     }
 }
