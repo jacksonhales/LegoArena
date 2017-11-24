@@ -110,16 +110,9 @@ namespace LegoArena.MainWindow
         private async void FindBlueRed_Click(object sender, RoutedEventArgs e)
         {
             //double colourValue = await controller.FindWall();
-
-<<<<<<< HEAD
             await controller.FindWall();
 
-            var colourValue = controller.ScanWall();
-            
-            // if yellow
-=======
-            // if yellow first
->>>>>>> c102f27d2ef30024b9ea6172365da5d704645efb
+            double colourValue = Convert.ToDouble(controller.ScanWall());
             if (colourValue == 4) 
             {
                 await controller.TurnRight90Degree();
