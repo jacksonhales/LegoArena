@@ -27,7 +27,21 @@ namespace LegoArena.MainWindow
         public MainWindow()
         {
             InitializeComponent();
-            
+            /*
+            Rectangle rectangle = new Rectangle()
+            {
+                Width = 120,
+                Height = 120,
+                Fill = Brushes.White,
+                Stroke = Brushes.Red,
+                StrokeThickness = 2,
+                
+            };
+            */
+            //cvsArena.Children.Add(rectangle);
+            //Canvas.SetTop(rectangle, 20);
+            //Canvas.SetLeft(rectangle, 20);
+
             Loaded += MainWindow_Loaded;
         }
 
@@ -37,6 +51,53 @@ namespace LegoArena.MainWindow
             await Controller.TeamBrick.ConnectASync();
             
             Controller.TeamBrick.Brick.BrickChanged += SensorTest;
+<<<<<<< HEAD
+=======
+
+            /*
+             double findcorner = 1;
+            double value1 = await controller.FindWall();
+            //await controller.TurnLeft90Degree();
+            double value2 = await controller.FindWall();
+
+            if (findcorner == 1)
+            {
+                if (value1 == 4 && value2 == 2)
+                {
+                    await controller.TurnRightAtDegree(135);
+                    await controller.FindWall();
+                }
+                else if (value1 == 2 && value2 == 4)
+                {
+                    await controller.TurnLeftAtDegree(135);
+                }
+
+                else if (value1 == 5 && value2 == 2)
+                {
+                    await controller.TurnLeftAtDegree(180);
+                    await controller.FindWall();
+                }
+                else if (value1 == 2 && value2 == 5)
+                {
+                    await controller.TurnRightAtDegree(90);
+                    await controller.FindWall();
+                }
+                else if (value1 == 4 && value2 == 1)
+                {
+                    await controller.TurnLeftAtDegree(90);
+                    await controller.FindWall();
+                }
+                else if (value1 == 5 && value2 == 1)
+                {
+                   
+                }
+                else if (value1 == 1 && value2 == 5)
+                {
+
+                }
+            }*/
+            
+>>>>>>> c102f27d2ef30024b9ea6172365da5d704645efb
         }
 
         public async void SensorTest(object sender, BrickChangedEventArgs e)
@@ -50,11 +111,15 @@ namespace LegoArena.MainWindow
         {
             //double colourValue = await controller.FindWall();
 
+<<<<<<< HEAD
             await controller.FindWall();
 
             var colourValue = controller.ScanWall();
             
             // if yellow
+=======
+            // if yellow first
+>>>>>>> c102f27d2ef30024b9ea6172365da5d704645efb
             if (colourValue == 4) 
             {
                 await controller.TurnRight90Degree();
@@ -67,36 +132,272 @@ namespace LegoArena.MainWindow
                     // if red, which it should be
                     if (colourValue == 5)
                     {
-                        //stop cause ur in the red/blue corner
+                        // stop because you're in the red/blue corner
                         Application.Current.Shutdown();
                     }
                 }
             }
 
-            // if red
+            // if red first
+            else if (colourValue == 5)
+            {
+                await controller.TurnLeft90Degree();
+                colourValue = await controller.FindWall();
+                // if blue, which it should be
+                if (colourValue == 2)
+                {
+                    // stop because you're in the red/blue corner
+                    Application.Current.Shutdown();
+                }
+            }
+
+            // if blue first
+            else if (colourValue == 2)
+            {
+                await controller.TurnRight90Degree();
+                colourValue = await controller.FindWall();
+                // if red, which it should be
+                if (colourValue == 5)
+                {
+                    // stop because you're in the red/blue corner
+                    Application.Current.Shutdown();
+                }
+            }
+
+            // if black first
+            else
+            {
+                await controller.TurnLeft90Degree();
+                colourValue = await controller.FindWall();
+                // if red, which it should be
+                if (colourValue == 5)
+                {
+                    await controller.TurnLeft90Degree();
+                    colourValue = await controller.FindWall();
+                    // if blue, which it should be
+                    if (colourValue == 2)
+                    {
+                        // stop because you're in the red/blue corner
+                        Application.Current.Shutdown();
+                    }
+                }
+            }
+        }
+
+        private async void FindBlueYellow_Click(object sender, RoutedEventArgs e)
+        {
+            double colourValue = await controller.FindWall();
+
+            // if red first
             if (colourValue == 5)
+            {
+                await controller.TurnLeft90Degree();
+                colourValue = await controller.FindWall();
+                // if blue, which it should be
+                if (colourValue == 2)
+                {
+                    await controller.TurnLeft90Degree();
+                    colourValue = await controller.FindWall();
+                    // if yellow, which it should be
+                    if (colourValue == 4)
+                    {
+                        // stop because you're in the blue/yellow corner
+                        Application.Current.Shutdown();
+                    }
+                }
+            }
+
+            // if yellow first
+            else if (colourValue == 4)
             {
                 await controller.TurnRight90Degree();
                 colourValue = await controller.FindWall();
                 // if blue, which it should be
                 if (colourValue == 2)
                 {
+                    // stop because you're in the blue/yellow corner
+                    Application.Current.Shutdown();
+                }
+            }
+
+            // if blue first
+            else if (colourValue == 2)
+            {
+                await controller.TurnLeft90Degree();
+                colourValue = await controller.FindWall();
+                // if yellow, which it should be
+                if (colourValue == 4)
+                {
+                    // stop because you're in the blue/yellow corner
+                    Application.Current.Shutdown();
+                }
+            }
+
+            // if black first
+            else
+            {
+                await controller.TurnRight90Degree();
+                colourValue = await controller.FindWall();
+                // if yellow, which it should be
+                if (colourValue == 4)
+                {
                     await controller.TurnRight90Degree();
                     colourValue = await controller.FindWall();
-                    // if red, which it should be
-                    if (colourValue == 5)
+                    // if blue, which it should be
+                    if (colourValue == 2)
                     {
-                        //stop cause ur in the red/blue corner
+                        // stop because you're in the blue/yellow corner
                         Application.Current.Shutdown();
                     }
                 }
             }
+        }
+
+        private async void FindBlackRed_Click(object sender, RoutedEventArgs e)
+        {
+            double colourValue = await controller.FindWall();
+
+            // if yellow first
+            if (colourValue == 4)
+            {
+                await controller.TurnLeft90Degree();
+                colourValue = await controller.FindWall();
+                // if black, which it should be
+                if (colourValue == 1)
+                {
+                    await controller.TurnLeft90Degree();
+                    colourValue = await controller.FindWall();
+                    // if red, which it should be
+                    if (colourValue == 5)
+                    {
+                        // stop because you're in the black/red corner
+                        Application.Current.Shutdown();
+                    }
+                }
+            }
+<<<<<<< HEAD
             // if blue
 
             // if black
             */
 
 
+=======
+
+            // if red first
+            else if (colourValue == 5)
+            {
+                await controller.TurnRight90Degree();
+                colourValue = await controller.FindWall();
+                // if black, which it should be
+                if (colourValue == 1)
+                {
+                    // stop because you're in the black/red corner
+                    Application.Current.Shutdown();
+                }
+            }
+
+            // if black first
+            else if (colourValue == 1)
+            {
+                await controller.TurnLeft90Degree();
+                colourValue = await controller.FindWall();
+                // if red, which it should be
+                if (colourValue == 5)
+                {
+                    // stop because you're in the black/red corner
+                    Application.Current.Shutdown();
+                }
+            }
+
+            // if blue first
+            else
+            {
+                await controller.TurnRight90Degree();
+                colourValue = await controller.FindWall();
+                // if red, which it should be
+                if (colourValue == 5)
+                {
+                    await controller.TurnRight90Degree();
+                    colourValue = await controller.FindWall();
+                    // if black, which it should be
+                    if (colourValue == 1)
+                    {
+                        // stop because you're in the black/red corner
+                        Application.Current.Shutdown();
+                    }
+                }
+            }
+        }
+
+        private async void FindBlackYellow_Click(object sender, RoutedEventArgs e)
+        {
+            double colourValue = await controller.FindWall();
+
+            // if red first
+            if (colourValue == 5)
+            {
+                await controller.TurnRight90Degree();
+                colourValue = await controller.FindWall();
+                // if black, which it should be
+                if (colourValue == 1)
+                {
+                    await controller.TurnRight90Degree();
+                    colourValue = await controller.FindWall();
+                    // if yellow, which it should be
+                    if (colourValue == 4)
+                    {
+                        // stop because you're in the black/yellow corner
+                        Application.Current.Shutdown();
+                    }
+                }
+            }
+
+            // if yellow first
+            else if (colourValue == 4)
+            {
+                await controller.TurnLeft90Degree();
+                colourValue = await controller.FindWall();
+                // if black, which it should be
+                if (colourValue == 1)
+                {
+                    // stop because you're in the black/yellow corner
+                    Application.Current.Shutdown();
+                }
+            }
+
+            // if black first
+            else if (colourValue == 1)
+            {
+                await controller.TurnRight90Degree();
+                colourValue = await controller.FindWall();
+                // if yellow, which it should be
+                if (colourValue == 4)
+                {
+                    // stop because you're in the black/yellow corner
+                    Application.Current.Shutdown();
+                }
+            }
+
+            // if blue first
+            else
+            {
+                await controller.TurnLeft90Degree();
+                colourValue = await controller.FindWall();
+                // if yellow, which it should be
+                if (colourValue == 4)
+                {
+                    await controller.TurnRight90Degree();
+                    colourValue = await controller.FindWall();
+                    // if black, which it should be
+                    if (colourValue == 1)
+                    {
+                        // stop because you're in the black/yellow corner
+                        Application.Current.Shutdown();
+                    }
+                }
+            }
+>>>>>>> c102f27d2ef30024b9ea6172365da5d704645efb
         }
     }
 }

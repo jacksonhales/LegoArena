@@ -46,6 +46,7 @@
     <Compile Include="Motor.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Sensor.cs" />
+    <Compile Include="Sequences.cs" />
     <Compile Include="TeamBrick.cs" />
     <Compile Include="UltrasonicSensor.cs" />
   </ItemGroup>

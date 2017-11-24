@@ -99,7 +99,11 @@ namespace LegoArena.ClassLibrary
             int count = 0;
             //List<float> wallValues = new List<float>();
             float originalGyroValue = GyroSensor.GetValue();
+<<<<<<< HEAD
             while (UltrasonicSensor.sensorValue >= 4) 
+=======
+            while (UltrasonicSensor.GetValue() >= 5) 
+>>>>>>> c102f27d2ef30024b9ea6172365da5d704645efb
             {
                 if (GyroSensor.GetValue() < originalGyroValue - 7) //check if vehicle has turned more than 7 degrees off of original orientation
                 {
@@ -113,11 +117,15 @@ namespace LegoArena.ClassLibrary
                 }
                 else
                 {
+<<<<<<< HEAD
                  /*   if (colourSensor.sensorValue != 0)
                     {
                         wallValues.Add(colourSensor.GetValue());
                         count++;
                     }*/
+=======
+
+>>>>>>> c102f27d2ef30024b9ea6172365da5d704645efb
                     await DriveStraight();
                     await Task.Delay(10);
                 }
@@ -182,6 +190,36 @@ namespace LegoArena.ClassLibrary
             float originalGyroValue = GyroSensor.GetValue();
 
             while (gyroSensor.GetValue() <= originalGyroValue + 90)
+            {
+                TeamBrick.Brick.BatchCommand.TurnMotorAtPowerForTime(OutputPort.A, 27, 10, false);
+                TeamBrick.Brick.BatchCommand.TurnMotorAtPowerForTime(OutputPort.D, -27, 10, false);
+                await TeamBrick.Brick.BatchCommand.SendCommandAsync();
+                await Task.Delay(10);
+            }
+        }
+
+        public async Task TurnLeft45Degree()
+        {
+
+            await Task.Delay(100);
+            float originalGyroValue = GyroSensor.GetValue();
+
+            while (gyroSensor.GetValue() >= originalGyroValue - 45)
+            {
+
+                TeamBrick.Brick.BatchCommand.TurnMotorAtPowerForTime(OutputPort.A, -27, 10, false);
+                TeamBrick.Brick.BatchCommand.TurnMotorAtPowerForTime(OutputPort.D, 27, 10, false);
+                await TeamBrick.Brick.BatchCommand.SendCommandAsync();
+                await Task.Delay(10);
+            }
+        }
+
+        public async Task TurnRight45Degree()
+        {
+            await Task.Delay(100);
+            float originalGyroValue = GyroSensor.GetValue();
+
+            while (gyroSensor.GetValue() <= originalGyroValue + 45)
             {
                 TeamBrick.Brick.BatchCommand.TurnMotorAtPowerForTime(OutputPort.A, 27, 10, false);
                 TeamBrick.Brick.BatchCommand.TurnMotorAtPowerForTime(OutputPort.D, -27, 10, false);

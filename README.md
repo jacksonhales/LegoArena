@@ -17,6 +17,11 @@ Find Homebase – R&B
 4.1. If Yellow and Black detected, if facing black turn 90 degrees Left or if facing yellow turn 180 degrees left, before heading to wall
 4.2. Then do from step 2.3
 
+If home base is Red and Blue
+	Set Corner1 = Red
+	Set Corner2 = Blue
+	Set Corner3 = Yellow
+	Set Corner4 = Black
 
 Command Findwall
 
@@ -37,65 +42,65 @@ While Passed == false
 
 Set FoundBase = false
 
-If Colour1 == Red && Colour2 == Blue | Colour1 == Blue && Colour2 == Red
+If Colour1 == Corner1 && Colour2 == Corner2 || Colour1 == Corner2 && Colour2 == Corner1
 	Set FoundBase = true
 
 
-Else If Colour1 == Red && Colour2 == Black | Colour2 == Red && Colour1 == Black
-	If Colour1 == Red
+Else If Colour1 == Corner1 && Colour2 == Corner4 | Colour2 == Corner1 && Colour1 == Corner4
+	If Colour1 == Corner1
 		Rotate 180 degrees Left
-	Else If Colour1 == Black
+	Else If Colour1 == Corner4
 		Rotate 90 degrees Left
 	Command Findwall
 
 	For
-		If ColourSensor == Blue
-			Colour1 = blue
+		If ColourSensor == Corner2
+			Colour1 = Corner2
 			Rotate right 90 degrees
 			Command FindWall
-		If ColourSensor == Red
-			Colour2 = red
+		If ColourSensor == Corner1
+			Colour2 = Corner1
 			Rotate left 90 degrees
 			Command FindWall
-	While Colour1 != blue && Colour2 != Red
+	While Colour1 != Corner2 && Colour2 != Corner1
 	Set FoundBase = true
 
-Else If Colour1 == Blue && Colour2 == Yellow | Colour2 == Blue && Colour1 == Yellow
-	If Colour1 == Blue
+Else If Colour1 == Corner2 && Colour2 == Corner3 | Colour2 == Corner2 && Colour1 == Corner3
+	If Colour1 == Corner2
 		Rotate 180 degrees Right
-	Else If Colour1 == Yellow
+	Else If Colour1 == Corner3
 		Rotate 90 degrees Right
 	Command Findwall
 
 	For
-		If ColourSensor == Red
-			Colour1 = Red
+		If ColourSensor == Corner1
+			Colour1 = Corner1
 			Rotate Left 90 degrees
 			Command FindWall
-		If ColourSensor == Blue
-			Colour2 = Blue
+		If ColourSensor == Corner2
+			Colour2 = Corner2
 			Rotate Right 90 degrees
 			Command FindWall
-	While Colour1 != Red && Colour2 != Blue
+	While Colour1 != Corner1 && Colour2 != Corner2
 	Set FoundBase = true
 	
-Else If Colour1 == Black && Colour2 == Yellow | Colour2 == Black && Colour1 == Yellow
-	If Colour1 == Black
+Else If (Colour1 == Corner4 && Colour2 == Corner3 | Colour2 == Corner4 && Colour1 == Corner3) && (Corner1 == Corner1 && Corner2 == Corner2)
+	If Colour1 == Corner4
 		Rotate 180 degrees Left
-	Else If Colour1 == Yellow
+	Else If Colour1 == Corner3
 		Rotate 90 degrees Left
 	Command FindWall
 	Rotate 90 Degrees Left
 	For
-		If ColourSensor == Blue
-			Colour1 = blue
+		If ColourSensor == Corner2
+			Colour1 = Corner2
 			Rotate right 90 degrees
 			Command FindWall
-		If ColourSensor == Red
-			Colour2 = red
+		If ColourSensor == Corner1
+			Colour2 = Corner1
 			Rotate left 90 degrees
 			Command FindWall
-	While Colour1 != blue && Colour2 != Red
+	While Colour1 != Corner2 && Colour2 != Corner1
 	Set FoundBase = true
 	
 
